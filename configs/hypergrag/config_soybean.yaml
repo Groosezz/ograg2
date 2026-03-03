@@ -1,10 +1,10 @@
 model:
-  api_base: 
-  api_key: 
+  api_base: https://qianfan.baidubce.com/v2
+  api_key: bce-v3/ALTAK-j8wi7wZlqtubCoGJr3lHh/bd314d546f5a9827d8ff3a8d5dcccf8a3a7b1768
   # api_base: 
   # api_key: 
   # deployment_name: gpt-35-turbo-16k # -32k
-  deployment_name: gpt-4o
+  deployment_name: deepseek-v3.2
   # deployment_name: gpt-4-32k # -32k
   api_type: openai
   api_version: '2024-02-01' 
@@ -20,11 +20,11 @@ model:
 #   # MODEL_NAME: gpt-4-32k
 
 embedding_model:
-  api_base: 
-  api_key: 
+  api_base: https://qianfan.baidubce.com/v2
+  api_key: bce-v3/ALTAK-j8wi7wZlqtubCoGJr3lHh/bd314d546f5a9827d8ff3a8d5dcccf8a3a7b1768
   # api_base: 
   # api_key: 
-  deployment_name: text-embedding-3-small # sentence-transformers/all-mpnet-base-v2
+  deployment_name: qwen3-embedding-8b # sentence-transformers/all-mpnet-base-v2
   api_type: openai #huggingface
   api_version: '2024-02-01' 
 
@@ -35,6 +35,7 @@ data:
   index_dir: index_openai/vector_soybean
   subdir: False
   smart_pdf: True
+  chunk_size: 8192
   
 query:
   method: ontohypergraph-rag #kg-rag
