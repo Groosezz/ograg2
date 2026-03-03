@@ -1,0 +1,1120 @@
+@prefix odlm: <http://asiainfo.com/odlm#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://asiainfo.com/odlm> a owl:Ontology .
+
+odlm:GraphNeuralNetwork a owl:Class ;
+    rdfs:label "GraphNeuralNetwork" ;
+    rdfs:subClassOf odlm:SemiSupervisedLearningAlgorithm .
+
+odlm:SelfTraining a owl:Class ;
+    rdfs:label "SelfTraining" ;
+    rdfs:subClassOf odlm:SemiSupervisedLearningAlgorithm .
+
+odlm:acousticModelType a owl:DatatypeProperty ;
+    rdfs:label "acousticModelType" ;
+    rdfs:domain odlm:SpeechRecognition ;
+    rdfs:range xsd:string .
+
+odlm:actionSpaceType a owl:DatatypeProperty ;
+    rdfs:label "actionSpaceType" ;
+    rdfs:domain odlm:RobotControl ;
+    rdfs:range xsd:string .
+
+odlm:activationFunction a owl:DatatypeProperty ;
+    rdfs:label "activationFunction" ;
+    rdfs:domain odlm:NeuralNetwork,
+        odlm:SparseCoding ;
+    rdfs:range xsd:string .
+
+odlm:adjust a owl:ObjectProperty ;
+    rdfs:label "adjust" ;
+    rdfs:domain odlm:Agent ;
+    rdfs:range odlm:Policy .
+
+odlm:annotationCost a owl:DatatypeProperty ;
+    rdfs:label "annotationCost" ;
+    rdfs:domain odlm:MedicalImageAnalysis ;
+    rdfs:range xsd:string .
+
+odlm:anomalyThreshold a owl:DatatypeProperty ;
+    rdfs:label "anomalyThreshold" ;
+    rdfs:domain odlm:AnomalyDetection ;
+    rdfs:range xsd:double .
+
+odlm:applicationDomain a owl:DatatypeProperty ;
+    rdfs:label "applicationDomain" ;
+    rdfs:domain odlm:Classification,
+        odlm:Regression ;
+    rdfs:range xsd:string .
+
+odlm:apply a owl:ObjectProperty ;
+    rdfs:label "apply" ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( odlm:CoTraining odlm:SupervisedLearning odlm:SemiSupervisedLearning odlm:UnsupervisedLearning odlm:ReinforcementLearning ) ] ;
+    rdfs:range [ a owl:Class ;
+            owl:unionOf ( odlm:SpeechRecognition odlm:DataCompression odlm:ImageRecognition odlm:Classification odlm:AutonomousDriving odlm:GeneAnalysis odlm:WebPageClassification odlm:NaturalLanguageProcessing odlm:GameAI odlm:AnomalyDetection odlm:AlgorithmicTrading odlm:Regression odlm:TextAnalysis odlm:RecommendationSystem odlm:MedicalImageAnalysis odlm:CustomerSegmentation odlm:RobotControl ) ] .
+
+odlm:balance a owl:ObjectProperty ;
+    rdfs:label "balance" ;
+    rdfs:domain odlm:PPO ;
+    rdfs:range odlm:PerformanceAndEfficiency .
+
+odlm:bandwidth a owl:DatatypeProperty ;
+    rdfs:label "bandwidth" ;
+    rdfs:domain odlm:DensityEstimation ;
+    rdfs:range xsd:double .
+
+odlm:build a owl:ObjectProperty ;
+    rdfs:label "build" ;
+    rdfs:domain odlm:QLearning ;
+    rdfs:range odlm:OptimalPolicy .
+
+odlm:businessGoal a owl:DatatypeProperty ;
+    rdfs:label "businessGoal" ;
+    rdfs:domain odlm:CustomerSegmentation ;
+    rdfs:range xsd:string .
+
+odlm:classCount a owl:DatatypeProperty ;
+    rdfs:label "classCount" ;
+    rdfs:domain odlm:Classification ;
+    rdfs:range xsd:int .
+
+odlm:clip a owl:ObjectProperty ;
+    rdfs:label "clip" ;
+    rdfs:domain odlm:PPO ;
+    rdfs:range odlm:PolicyUpdate .
+
+odlm:clusterCount a owl:DatatypeProperty ;
+    rdfs:label "clusterCount" ;
+    rdfs:domain odlm:Clustering ;
+    rdfs:range xsd:int .
+
+odlm:clusterShapeAssumption a owl:DatatypeProperty ;
+    rdfs:label "clusterShapeAssumption" ;
+    rdfs:domain odlm:Clustering ;
+    rdfs:range xsd:string .
+
+odlm:coldStartHandling a owl:DatatypeProperty ;
+    rdfs:label "coldStartHandling" ;
+    rdfs:domain odlm:RecommendationSystem ;
+    rdfs:range xsd:boolean .
+
+odlm:combine a owl:ObjectProperty ;
+    rdfs:label "combine" ;
+    rdfs:domain odlm:DQN ;
+    rdfs:range odlm:DeepNeuralNetwork .
+
+odlm:compressionRatio a owl:DatatypeProperty ;
+    rdfs:label "compressionRatio" ;
+    rdfs:domain odlm:DataCompression ;
+    rdfs:range xsd:double .
+
+odlm:computationalComplexity a owl:DatatypeProperty ;
+    rdfs:label "computationalComplexity" ;
+    rdfs:domain odlm:Algorithm,
+        odlm:QLearning,
+        odlm:TRPO ;
+    rdfs:range xsd:string .
+
+odlm:confidenceThreshold a owl:DatatypeProperty ;
+    rdfs:label "confidenceThreshold" ;
+    rdfs:domain odlm:CoTraining ;
+    rdfs:range xsd:double .
+
+odlm:constrain a owl:ObjectProperty ;
+    rdfs:label "constrain" ;
+    rdfs:domain odlm:TRPO ;
+    rdfs:range odlm:PolicyUpdate .
+
+odlm:contentStructure a owl:DatatypeProperty ;
+    rdfs:label "contentStructure" ;
+    rdfs:domain odlm:WebPageClassification ;
+    rdfs:range xsd:string .
+
+odlm:contextAwareness a owl:DatatypeProperty ;
+    rdfs:label "contextAwareness" ;
+    rdfs:domain odlm:NaturalLanguageProcessing ;
+    rdfs:range xsd:boolean .
+
+odlm:convergenceGuarantee a owl:DatatypeProperty ;
+    rdfs:label "convergenceGuarantee" ;
+    rdfs:domain odlm:ReinforcementLearningAlgorithm,
+        odlm:SemiSupervisedLearningAlgorithm,
+        odlm:SupervisedLearningAlgorithm,
+        odlm:UnsupervisedLearningAlgorithm ;
+    rdfs:range xsd:boolean .
+
+odlm:convergenceStability a owl:DatatypeProperty ;
+    rdfs:label "convergenceStability" ;
+    rdfs:domain odlm:TRPO ;
+    rdfs:range xsd:string .
+
+odlm:covarianceType a owl:DatatypeProperty ;
+    rdfs:label "covarianceType" ;
+    rdfs:domain odlm:GaussianMixtureModel ;
+    rdfs:range xsd:string .
+
+odlm:dataAvailability a owl:DatatypeProperty ;
+    rdfs:label "dataAvailability" ;
+    rdfs:domain odlm:ApplicationScenario ;
+    rdfs:range xsd:string .
+
+odlm:dendrogramOutput a owl:DatatypeProperty ;
+    rdfs:label "dendrogramOutput" ;
+    rdfs:domain odlm:HierarchicalClustering ;
+    rdfs:range xsd:boolean .
+
+odlm:dependsOnLabelQuality a owl:DatatypeProperty ;
+    rdfs:label "dependsOnLabelQuality" ;
+    rdfs:domain odlm:SupervisedLearning ;
+    rdfs:range xsd:boolean .
+
+odlm:dependsOnLabelQuantity a owl:DatatypeProperty ;
+    rdfs:label "dependsOnLabelQuantity" ;
+    rdfs:domain odlm:SupervisedLearning ;
+    rdfs:range xsd:boolean .
+
+odlm:deploymentSuitability a owl:DatatypeProperty ;
+    rdfs:label "deploymentSuitability" ;
+    rdfs:domain odlm:TRPO ;
+    rdfs:range xsd:string .
+
+odlm:description a owl:DatatypeProperty ;
+    rdfs:label "description" ;
+    rdfs:domain odlm:LearningMethod ;
+    rdfs:range xsd:string .
+
+odlm:detectionLatency a owl:DatatypeProperty ;
+    rdfs:label "detectionLatency" ;
+    rdfs:domain odlm:AnomalyDetection ;
+    rdfs:range xsd:double .
+
+odlm:dictionarySize a owl:DatatypeProperty ;
+    rdfs:label "dictionarySize" ;
+    rdfs:domain odlm:SparseCoding ;
+    rdfs:range xsd:int .
+
+odlm:distanceMetric a owl:DatatypeProperty ;
+    rdfs:label "distanceMetric" ;
+    rdfs:domain odlm:HierarchicalClustering,
+        odlm:KMeans ;
+    rdfs:range xsd:string .
+
+odlm:distributionAssumption a owl:DatatypeProperty ;
+    rdfs:label "distributionAssumption" ;
+    rdfs:domain odlm:GenerativeModel ;
+    rdfs:range xsd:string .
+
+odlm:domain a owl:DatatypeProperty ;
+    rdfs:label "domain" ;
+    rdfs:domain odlm:AlgorithmicTrading,
+        odlm:ApplicationScenario,
+        odlm:AutonomousDriving,
+        odlm:GameAI,
+        odlm:RobotControl ;
+    rdfs:range xsd:string .
+
+odlm:emissionDistribution a owl:DatatypeProperty ;
+    rdfs:label "emissionDistribution" ;
+    rdfs:domain odlm:HiddenMarkovModel ;
+    rdfs:range xsd:string .
+
+odlm:environmentComplexity a owl:DatatypeProperty ;
+    rdfs:label "environmentComplexity" ;
+    rdfs:domain odlm:GameAI ;
+    rdfs:range xsd:string .
+
+odlm:estimate a owl:ObjectProperty ;
+    rdfs:label "estimate" ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( odlm:GaussianMixtureModel odlm:QLearning ) ] ;
+    rdfs:range [ a owl:Class ;
+            owl:unionOf ( odlm:QValue odlm:Parameters ) ] .
+
+odlm:evaluate a owl:ObjectProperty ;
+    rdfs:label "evaluate" ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( odlm:Critic odlm:ActorCritic ) ] ;
+    rdfs:range [ a owl:Class ;
+            owl:unionOf ( odlm:PolicyQuality odlm:ValueFunction ) ] .
+
+odlm:evaluationMetric a owl:DatatypeProperty ;
+    rdfs:label "evaluationMetric" ;
+    rdfs:domain odlm:Classification,
+        odlm:Regression ;
+    rdfs:range xsd:string .
+
+odlm:exaggeration a owl:DatatypeProperty ;
+    rdfs:label "exaggeration" ;
+    rdfs:domain odlm:TSNE ;
+    rdfs:range xsd:double .
+
+odlm:expressionNormalization a owl:DatatypeProperty ;
+    rdfs:label "expressionNormalization" ;
+    rdfs:domain odlm:GeneAnalysis ;
+    rdfs:range xsd:boolean .
+
+odlm:featureExtractor a owl:DatatypeProperty ;
+    rdfs:label "featureExtractor" ;
+    rdfs:domain odlm:ImageRecognition ;
+    rdfs:range xsd:string .
+
+odlm:featureViewCount a owl:DatatypeProperty ;
+    rdfs:label "featureViewCount" ;
+    rdfs:domain odlm:WebPageClassification ;
+    rdfs:range xsd:int .
+
+odlm:frequentPatternCount a owl:DatatypeProperty ;
+    rdfs:label "frequentPatternCount" ;
+    rdfs:domain odlm:FPGrowth ;
+    rdfs:range xsd:int .
+
+odlm:geneCount a owl:DatatypeProperty ;
+    rdfs:label "geneCount" ;
+    rdfs:domain odlm:GeneAnalysis ;
+    rdfs:range xsd:int .
+
+odlm:handlesHighDimensionalStateSpace a owl:DatatypeProperty ;
+    rdfs:label "handlesHighDimensionalStateSpace" ;
+    rdfs:domain odlm:DQN ;
+    rdfs:range xsd:boolean .
+
+odlm:hasHighValue a owl:DatatypeProperty ;
+    rdfs:label "hasHighValue" ;
+    rdfs:domain odlm:ReinforcementLearning,
+        odlm:SemiSupervisedLearning,
+        odlm:SupervisedLearning,
+        odlm:UnsupervisedLearning ;
+    rdfs:range xsd:boolean .
+
+odlm:identify a owl:ObjectProperty ;
+    rdfs:label "identify" ;
+    rdfs:domain odlm:UnsupervisedLearning ;
+    rdfs:range [ a owl:Class ;
+            owl:unionOf ( odlm:Pattern odlm:Structure ) ] .
+
+odlm:implementationComplexity a owl:DatatypeProperty ;
+    rdfs:label "implementationComplexity" ;
+    rdfs:domain odlm:PPO ;
+    rdfs:range xsd:string .
+
+odlm:includesAlgorithms a owl:DatatypeProperty ;
+    rdfs:label "includesAlgorithms" ;
+    rdfs:domain odlm:ReinforcementLearning,
+        odlm:SemiSupervisedLearning,
+        odlm:SupervisedLearning,
+        odlm:UnsupervisedLearning ;
+    rdfs:range xsd:boolean .
+
+odlm:initializationMethod a owl:DatatypeProperty ;
+    rdfs:label "initializationMethod" ;
+    rdfs:domain odlm:KMeans ;
+    rdfs:range xsd:string .
+
+odlm:inputDataType a owl:DatatypeProperty ;
+    rdfs:label "inputDataType" ;
+    rdfs:domain odlm:Algorithm ;
+    rdfs:range xsd:string .
+
+odlm:inputModality a owl:DatatypeProperty ;
+    rdfs:label "inputModality" ;
+    rdfs:domain odlm:DQN ;
+    rdfs:range xsd:string .
+
+odlm:interact a owl:ObjectProperty ;
+    rdfs:label "interact" ;
+    rdfs:domain odlm:Agent ;
+    rdfs:range odlm:Environment .
+
+odlm:interactsWithEnvironment a owl:DatatypeProperty ;
+    rdfs:label "interactsWithEnvironment" ;
+    rdfs:domain odlm:ReinforcementLearning ;
+    rdfs:range xsd:boolean .
+
+odlm:interpretability a owl:DatatypeProperty ;
+    rdfs:label "interpretability" ;
+    rdfs:domain odlm:GenerativeModel ;
+    rdfs:range xsd:string .
+
+odlm:involvesTemporalDependency a owl:DatatypeProperty ;
+    rdfs:label "involvesTemporalDependency" ;
+    rdfs:domain odlm:SequentialDecisionMaking ;
+    rdfs:range xsd:boolean .
+
+odlm:itemSetSizeLimit a owl:DatatypeProperty ;
+    rdfs:label "itemSetSizeLimit" ;
+    rdfs:domain odlm:Apriori ;
+    rdfs:range xsd:int .
+
+odlm:kernelType a owl:DatatypeProperty ;
+    rdfs:label "kernelType" ;
+    rdfs:domain odlm:DensityEstimation,
+        odlm:SupportVectorMachine ;
+    rdfs:range xsd:string .
+
+odlm:languageModelIntegration a owl:DatatypeProperty ;
+    rdfs:label "languageModelIntegration" ;
+    rdfs:domain odlm:SpeechRecognition ;
+    rdfs:range xsd:boolean .
+
+odlm:learn a owl:ObjectProperty ;
+    rdfs:label "learn" ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( odlm:SupervisedLearning odlm:SemiSupervisedLearning odlm:GenerativeModel odlm:UnsupervisedLearning odlm:ReinforcementLearning ) ] ;
+    rdfs:range [ a owl:Class ;
+            owl:unionOf ( odlm:Structure odlm:Pattern odlm:Label odlm:Policy odlm:JointDistribution ) ] .
+
+odlm:learningParadigm a owl:DatatypeProperty ;
+    rdfs:label "learningParadigm" ;
+    rdfs:domain odlm:ReinforcementLearning,
+        odlm:SemiSupervisedLearning,
+        odlm:SupervisedLearning,
+        odlm:UnsupervisedLearning ;
+    rdfs:range xsd:string .
+
+odlm:learningRate a owl:DatatypeProperty ;
+    rdfs:label "learningRate" ;
+    rdfs:domain odlm:TSNE ;
+    rdfs:range xsd:double .
+
+odlm:limit a owl:ObjectProperty ;
+    rdfs:label "limit" ;
+    rdfs:domain odlm:TRPO ;
+    rdfs:range odlm:PolicyChange .
+
+odlm:linguisticFeatures a owl:DatatypeProperty ;
+    rdfs:label "linguisticFeatures" ;
+    rdfs:domain odlm:TextAnalysis ;
+    rdfs:range xsd:string .
+
+odlm:linkageCriterion a owl:DatatypeProperty ;
+    rdfs:label "linkageCriterion" ;
+    rdfs:domain odlm:HierarchicalClustering ;
+    rdfs:range xsd:string .
+
+odlm:lossFunction a owl:DatatypeProperty ;
+    rdfs:label "lossFunction" ;
+    rdfs:domain odlm:LinearRegression ;
+    rdfs:range xsd:string .
+
+odlm:lossy a owl:DatatypeProperty ;
+    rdfs:label "lossy" ;
+    rdfs:domain odlm:DataCompression ;
+    rdfs:range xsd:boolean .
+
+odlm:maxDepth a owl:DatatypeProperty ;
+    rdfs:label "maxDepth" ;
+    rdfs:domain odlm:DecisionTree ;
+    rdfs:range xsd:int .
+
+odlm:maximize a owl:ObjectProperty ;
+    rdfs:label "maximize" ;
+    rdfs:domain odlm:ReinforcementLearning ;
+    rdfs:range odlm:CumulativeReward .
+
+odlm:minConfidence a owl:DatatypeProperty ;
+    rdfs:label "minConfidence" ;
+    rdfs:domain odlm:Apriori ;
+    rdfs:range xsd:double .
+
+odlm:minSupport a owl:DatatypeProperty ;
+    rdfs:label "minSupport" ;
+    rdfs:domain odlm:Apriori,
+        odlm:FPGrowth ;
+    rdfs:range xsd:double .
+
+odlm:minimize a owl:ObjectProperty ;
+    rdfs:label "minimize" ;
+    rdfs:domain odlm:SupervisedLearning ;
+    rdfs:range odlm:PredictionError .
+
+odlm:modality a owl:DatatypeProperty ;
+    rdfs:label "modality" ;
+    rdfs:domain odlm:MedicalImageAnalysis ;
+    rdfs:range xsd:string .
+
+odlm:model a owl:ObjectProperty ;
+    rdfs:label "model" ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( odlm:GenerativeModel odlm:HiddenMarkovModel ) ] ;
+    rdfs:range [ a owl:Class ;
+            owl:unionOf ( odlm:JointDistribution odlm:TimeSeriesModeling ) ] .
+
+odlm:modelFree a owl:DatatypeProperty ;
+    rdfs:label "modelFree" ;
+    rdfs:domain odlm:QLearning ;
+    rdfs:range xsd:boolean .
+
+odlm:name a owl:DatatypeProperty ;
+    rdfs:label "name" ;
+    rdfs:domain odlm:Algorithm,
+        odlm:LearningMethod,
+        odlm:Task ;
+    rdfs:range xsd:string .
+
+odlm:numberOfClusters a owl:DatatypeProperty ;
+    rdfs:label "numberOfClusters" ;
+    rdfs:domain odlm:KMeans ;
+    rdfs:range xsd:int .
+
+odlm:numberOfComponents a owl:DatatypeProperty ;
+    rdfs:label "numberOfComponents" ;
+    rdfs:domain odlm:GaussianMixtureModel,
+        odlm:PCA ;
+    rdfs:range xsd:int .
+
+odlm:numberOfLayers a owl:DatatypeProperty ;
+    rdfs:label "numberOfLayers" ;
+    rdfs:domain odlm:NeuralNetwork ;
+    rdfs:range xsd:int .
+
+odlm:numberOfStates a owl:DatatypeProperty ;
+    rdfs:label "numberOfStates" ;
+    rdfs:domain odlm:HiddenMarkovModel ;
+    rdfs:range xsd:int .
+
+odlm:objective a owl:DatatypeProperty ;
+    rdfs:label "objective" ;
+    rdfs:domain odlm:SequentialDecisionMaking,
+        odlm:Task ;
+    rdfs:range xsd:string .
+
+odlm:optimize a owl:ObjectProperty ;
+    rdfs:label "optimize" ;
+    rdfs:domain odlm:ActorCritic ;
+    rdfs:range odlm:Policy .
+
+odlm:output a owl:ObjectProperty ;
+    rdfs:label "output" ;
+    rdfs:domain odlm:Actor ;
+    rdfs:range odlm:ActionProbabilityDistribution .
+
+odlm:parameterSensitivity a owl:DatatypeProperty ;
+    rdfs:label "parameterSensitivity" ;
+    rdfs:domain odlm:ReinforcementLearningAlgorithm,
+        odlm:SemiSupervisedLearningAlgorithm,
+        odlm:SupervisedLearningAlgorithm,
+        odlm:UnsupervisedLearningAlgorithm ;
+    rdfs:range xsd:string .
+
+odlm:perform a owl:ObjectProperty ;
+    rdfs:label "perform" ;
+    rdfs:domain odlm:GaussianMixtureModel ;
+    rdfs:range [ a owl:Class ;
+            owl:unionOf ( odlm:Clustering odlm:Classification ) ] .
+
+odlm:perplexity a owl:DatatypeProperty ;
+    rdfs:label "perplexity" ;
+    rdfs:domain odlm:TSNE ;
+    rdfs:range xsd:int .
+
+odlm:popularity a owl:DatatypeProperty ;
+    rdfs:label "popularity" ;
+    rdfs:domain odlm:PPO ;
+    rdfs:range xsd:string .
+
+odlm:provide a owl:ObjectProperty ;
+    rdfs:label "provide" ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( odlm:Critic odlm:ActorCritic ) ] ;
+    rdfs:range odlm:OptimizationDirection .
+
+odlm:receive a owl:ObjectProperty ;
+    rdfs:label "receive" ;
+    rdfs:domain odlm:Agent ;
+    rdfs:range odlm:RewardSignal .
+
+odlm:recommendationType a owl:DatatypeProperty ;
+    rdfs:label "recommendationType" ;
+    rdfs:domain odlm:RecommendationSystem ;
+    rdfs:range xsd:string .
+
+odlm:reconstructionError a owl:DatatypeProperty ;
+    rdfs:label "reconstructionError" ;
+    rdfs:domain odlm:DimensionalityReduction ;
+    rdfs:range xsd:double .
+
+odlm:reduce a owl:ObjectProperty ;
+    rdfs:label "reduce" ;
+    rdfs:domain odlm:SemiSupervisedLearning ;
+    rdfs:range odlm:LabelingDependency .
+
+odlm:regularizationParameter a owl:DatatypeProperty ;
+    rdfs:label "regularizationParameter" ;
+    rdfs:domain odlm:SupportVectorMachine ;
+    rdfs:range xsd:double .
+
+odlm:regularizationType a owl:DatatypeProperty ;
+    rdfs:label "regularizationType" ;
+    rdfs:domain odlm:LinearRegression ;
+    rdfs:range xsd:string .
+
+odlm:rely a owl:ObjectProperty ;
+    rdfs:label "rely" ;
+    rdfs:domain odlm:Model ;
+    rdfs:range odlm:DataFeature .
+
+odlm:require a owl:ObjectProperty ;
+    rdfs:label "require" ;
+    rdfs:domain odlm:Model ;
+    rdfs:range odlm:Label .
+
+odlm:requiresLabels a owl:DatatypeProperty ;
+    rdfs:label "requiresLabels" ;
+    rdfs:domain odlm:ReinforcementLearning,
+        odlm:SemiSupervisedLearning,
+        odlm:SupervisedLearning,
+        odlm:UnsupervisedLearning ;
+    rdfs:range xsd:boolean .
+
+odlm:safetyCritical a owl:DatatypeProperty ;
+    rdfs:label "safetyCritical" ;
+    rdfs:domain odlm:AutonomousDriving ;
+    rdfs:range xsd:boolean .
+
+odlm:sampleEfficiency a owl:DatatypeProperty ;
+    rdfs:label "sampleEfficiency" ;
+    rdfs:domain odlm:DQN ;
+    rdfs:range xsd:string .
+
+odlm:scalability a owl:DatatypeProperty ;
+    rdfs:label "scalability" ;
+    rdfs:domain odlm:QLearning ;
+    rdfs:range xsd:string .
+
+odlm:segmentationBasis a owl:DatatypeProperty ;
+    rdfs:label "segmentationBasis" ;
+    rdfs:domain odlm:CustomerSegmentation ;
+    rdfs:range xsd:string .
+
+odlm:semanticGranularity a owl:DatatypeProperty ;
+    rdfs:label "semanticGranularity" ;
+    rdfs:domain odlm:TextAnalysis ;
+    rdfs:range xsd:string .
+
+odlm:sensitiveToDistributionAssumption a owl:DatatypeProperty ;
+    rdfs:label "sensitiveToDistributionAssumption" ;
+    rdfs:domain odlm:GenerativeModel ;
+    rdfs:range xsd:boolean .
+
+odlm:sequenceLength a owl:DatatypeProperty ;
+    rdfs:label "sequenceLength" ;
+    rdfs:domain odlm:TimeSeriesModeling ;
+    rdfs:range xsd:int .
+
+odlm:solve a owl:ObjectProperty ;
+    rdfs:label "solve" ;
+    rdfs:domain odlm:ReinforcementLearning ;
+    rdfs:range odlm:SequentialDecisionMaking .
+
+odlm:sparsityCoefficient a owl:DatatypeProperty ;
+    rdfs:label "sparsityCoefficient" ;
+    rdfs:domain odlm:SparseCoding ;
+    rdfs:range xsd:double .
+
+odlm:spatialHierarchy a owl:DatatypeProperty ;
+    rdfs:label "spatialHierarchy" ;
+    rdfs:domain odlm:ImageRecognition ;
+    rdfs:range xsd:boolean .
+
+odlm:splitCriterion a owl:DatatypeProperty ;
+    rdfs:label "splitCriterion" ;
+    rdfs:domain odlm:DecisionTree ;
+    rdfs:range xsd:string .
+
+odlm:stabilize a owl:ObjectProperty ;
+    rdfs:label "stabilize" ;
+    rdfs:domain odlm:DQN ;
+    rdfs:range odlm:Training .
+
+odlm:suitableForHighDimensionalTasks a owl:DatatypeProperty ;
+    rdfs:label "suitableForHighDimensionalTasks" ;
+    rdfs:domain odlm:TRPO ;
+    rdfs:range xsd:boolean .
+
+odlm:supportsContinuousActionSpace a owl:DatatypeProperty ;
+    rdfs:label "supportsContinuousActionSpace" ;
+    rdfs:domain odlm:ActorCritic,
+        odlm:DQN,
+        odlm:QLearning ;
+    rdfs:range xsd:boolean .
+
+odlm:supportsDiscreteActionSpace a owl:DatatypeProperty ;
+    rdfs:label "supportsDiscreteActionSpace" ;
+    rdfs:domain odlm:DQN,
+        odlm:QLearning ;
+    rdfs:range xsd:boolean .
+
+odlm:supportsDiscreteStateSpace a owl:DatatypeProperty ;
+    rdfs:label "supportsDiscreteStateSpace" ;
+    rdfs:domain odlm:QLearning ;
+    rdfs:range xsd:boolean .
+
+odlm:targetDimensionality a owl:DatatypeProperty ;
+    rdfs:label "targetDimensionality" ;
+    rdfs:domain odlm:DimensionalityReduction ;
+    rdfs:range xsd:int .
+
+odlm:targetVariable a owl:DatatypeProperty ;
+    rdfs:label "targetVariable" ;
+    rdfs:domain odlm:Regression ;
+    rdfs:range xsd:string .
+
+odlm:temporalDependency a owl:DatatypeProperty ;
+    rdfs:label "temporalDependency" ;
+    rdfs:domain odlm:TimeSeriesModeling ;
+    rdfs:range xsd:boolean .
+
+odlm:temporalGranularity a owl:DatatypeProperty ;
+    rdfs:label "temporalGranularity" ;
+    rdfs:domain odlm:AlgorithmicTrading ;
+    rdfs:range xsd:string .
+
+odlm:textRepresentation a owl:DatatypeProperty ;
+    rdfs:label "textRepresentation" ;
+    rdfs:domain odlm:NaturalLanguageProcessing ;
+    rdfs:range xsd:string .
+
+odlm:train a owl:ObjectProperty ;
+    rdfs:label "train" ;
+    rdfs:domain odlm:CoTraining ;
+    rdfs:range odlm:Classifier .
+
+odlm:trainingStability a owl:DatatypeProperty ;
+    rdfs:label "trainingStability" ;
+    rdfs:domain odlm:ActorCritic,
+        odlm:PPO ;
+    rdfs:range xsd:string .
+
+odlm:trainingVariance a owl:DatatypeProperty ;
+    rdfs:label "trainingVariance" ;
+    rdfs:domain odlm:ActorCritic ;
+    rdfs:range xsd:string .
+
+odlm:treeCompression a owl:DatatypeProperty ;
+    rdfs:label "treeCompression" ;
+    rdfs:domain odlm:FPGrowth ;
+    rdfs:range xsd:boolean .
+
+odlm:update a owl:ObjectProperty ;
+    rdfs:label "update" ;
+    rdfs:domain odlm:QLearning ;
+    rdfs:range odlm:QValue .
+
+odlm:updateRule a owl:DatatypeProperty ;
+    rdfs:label "updateRule" ;
+    rdfs:domain odlm:QLearning ;
+    rdfs:range xsd:string .
+
+odlm:use a owl:ObjectProperty ;
+    rdfs:label "use" ;
+    rdfs:domain odlm:ActorCritic ;
+    rdfs:range odlm:TimeDifferenceError .
+
+odlm:usesBaumWelchAlgorithm a owl:DatatypeProperty ;
+    rdfs:label "usesBaumWelchAlgorithm" ;
+    rdfs:domain odlm:HiddenMarkovModel ;
+    rdfs:range xsd:boolean .
+
+odlm:usesBayesianTheory a owl:DatatypeProperty ;
+    rdfs:label "usesBayesianTheory" ;
+    rdfs:domain odlm:GenerativeModel ;
+    rdfs:range xsd:boolean .
+
+odlm:usesClippingMechanism a owl:DatatypeProperty ;
+    rdfs:label "usesClippingMechanism" ;
+    rdfs:domain odlm:PPO ;
+    rdfs:range xsd:boolean .
+
+odlm:usesExperienceReplay a owl:DatatypeProperty ;
+    rdfs:label "usesExperienceReplay" ;
+    rdfs:domain odlm:DQN ;
+    rdfs:range xsd:boolean .
+
+odlm:usesForwardAlgorithm a owl:DatatypeProperty ;
+    rdfs:label "usesForwardAlgorithm" ;
+    rdfs:domain odlm:HiddenMarkovModel ;
+    rdfs:range xsd:boolean .
+
+odlm:usesKLDivergenceConstraint a owl:DatatypeProperty ;
+    rdfs:label "usesKLDivergenceConstraint" ;
+    rdfs:domain odlm:TRPO ;
+    rdfs:range xsd:boolean .
+
+odlm:usesPolicyNetwork a owl:DatatypeProperty ;
+    rdfs:label "usesPolicyNetwork" ;
+    rdfs:domain odlm:ActorCritic ;
+    rdfs:range xsd:boolean .
+
+odlm:usesRewardSignal a owl:DatatypeProperty ;
+    rdfs:label "usesRewardSignal" ;
+    rdfs:domain odlm:ReinforcementLearning ;
+    rdfs:range xsd:boolean .
+
+odlm:usesTDError a owl:DatatypeProperty ;
+    rdfs:label "usesTDError" ;
+    rdfs:domain odlm:ActorCritic ;
+    rdfs:range xsd:boolean .
+
+odlm:usesTargetNetwork a owl:DatatypeProperty ;
+    rdfs:label "usesTargetNetwork" ;
+    rdfs:domain odlm:DQN ;
+    rdfs:range xsd:boolean .
+
+odlm:usesUnlabeledData a owl:DatatypeProperty ;
+    rdfs:label "usesUnlabeledData" ;
+    rdfs:domain odlm:SemiSupervisedLearning ;
+    rdfs:range xsd:boolean .
+
+odlm:usesValueNetwork a owl:DatatypeProperty ;
+    rdfs:label "usesValueNetwork" ;
+    rdfs:domain odlm:ActorCritic ;
+    rdfs:range xsd:boolean .
+
+odlm:usesViterbiAlgorithm a owl:DatatypeProperty ;
+    rdfs:label "usesViterbiAlgorithm" ;
+    rdfs:domain odlm:HiddenMarkovModel ;
+    rdfs:range xsd:boolean .
+
+odlm:varianceThreshold a owl:DatatypeProperty ;
+    rdfs:label "varianceThreshold" ;
+    rdfs:domain odlm:PCA ;
+    rdfs:range xsd:double .
+
+odlm:viewIndependence a owl:DatatypeProperty ;
+    rdfs:label "viewIndependence" ;
+    rdfs:domain odlm:CoTraining ;
+    rdfs:range xsd:boolean .
+
+odlm:whitening a owl:DatatypeProperty ;
+    rdfs:label "whitening" ;
+    rdfs:domain odlm:PCA ;
+    rdfs:range xsd:boolean .
+
+odlm:widelyUsed a owl:DatatypeProperty ;
+    rdfs:label "widelyUsed" ;
+    rdfs:domain odlm:PPO ;
+    rdfs:range xsd:boolean .
+
+odlm:ActionProbabilityDistribution a owl:Class ;
+    rdfs:label "ActionProbabilityDistribution" .
+
+odlm:Actor a owl:Class ;
+    rdfs:label "Actor" .
+
+odlm:Classifier a owl:Class ;
+    rdfs:label "Classifier" .
+
+odlm:CumulativeReward a owl:Class ;
+    rdfs:label "CumulativeReward" .
+
+odlm:DataFeature a owl:Class ;
+    rdfs:label "DataFeature" .
+
+odlm:DeepNeuralNetwork a owl:Class ;
+    rdfs:label "DeepNeuralNetwork" .
+
+odlm:Environment a owl:Class ;
+    rdfs:label "Environment" .
+
+odlm:LabelingDependency a owl:Class ;
+    rdfs:label "LabelingDependency" .
+
+odlm:OptimalPolicy a owl:Class ;
+    rdfs:label "OptimalPolicy" .
+
+odlm:OptimizationDirection a owl:Class ;
+    rdfs:label "OptimizationDirection" .
+
+odlm:Parameters a owl:Class ;
+    rdfs:label "Parameters" .
+
+odlm:PerformanceAndEfficiency a owl:Class ;
+    rdfs:label "PerformanceAndEfficiency" .
+
+odlm:PolicyChange a owl:Class ;
+    rdfs:label "PolicyChange" .
+
+odlm:PolicyQuality a owl:Class ;
+    rdfs:label "PolicyQuality" .
+
+odlm:PredictionError a owl:Class ;
+    rdfs:label "PredictionError" .
+
+odlm:RewardSignal a owl:Class ;
+    rdfs:label "RewardSignal" .
+
+odlm:TimeDifferenceError a owl:Class ;
+    rdfs:label "TimeDifferenceError" .
+
+odlm:Training a owl:Class ;
+    rdfs:label "Training" .
+
+odlm:ValueFunction a owl:Class ;
+    rdfs:label "ValueFunction" .
+
+odlm:AssociationRuleMiningAlgorithm a owl:Class ;
+    rdfs:label "AssociationRuleMiningAlgorithm" ;
+    rdfs:subClassOf odlm:UnsupervisedLearningAlgorithm .
+
+odlm:ClusteringAlgorithm a owl:Class ;
+    rdfs:label "ClusteringAlgorithm" ;
+    rdfs:subClassOf odlm:UnsupervisedLearningAlgorithm .
+
+odlm:Critic a owl:Class ;
+    rdfs:label "Critic" .
+
+odlm:DecisionTree a owl:Class ;
+    rdfs:label "DecisionTree" ;
+    rdfs:subClassOf odlm:SupervisedLearningAlgorithm .
+
+odlm:DensityEstimation a owl:Class ;
+    rdfs:label "DensityEstimation" ;
+    rdfs:subClassOf odlm:Task .
+
+odlm:DimensionalityReduction a owl:Class ;
+    rdfs:label "DimensionalityReduction" ;
+    rdfs:subClassOf odlm:Task .
+
+odlm:DimensionalityReductionAlgorithm a owl:Class ;
+    rdfs:label "DimensionalityReductionAlgorithm" ;
+    rdfs:subClassOf odlm:UnsupervisedLearningAlgorithm .
+
+odlm:JointDistribution a owl:Class ;
+    rdfs:label "JointDistribution" .
+
+odlm:Label a owl:Class ;
+    rdfs:label "Label" .
+
+odlm:LinearRegression a owl:Class ;
+    rdfs:label "LinearRegression" ;
+    rdfs:subClassOf odlm:SupervisedLearningAlgorithm .
+
+odlm:Model a owl:Class ;
+    rdfs:label "Model" .
+
+odlm:NeuralNetwork a owl:Class ;
+    rdfs:label "NeuralNetwork" ;
+    rdfs:subClassOf odlm:SupervisedLearningAlgorithm .
+
+odlm:Pattern a owl:Class ;
+    rdfs:label "Pattern" .
+
+odlm:PolicyUpdate a owl:Class ;
+    rdfs:label "PolicyUpdate" .
+
+odlm:QValue a owl:Class ;
+    rdfs:label "QValue" .
+
+odlm:Structure a owl:Class ;
+    rdfs:label "Structure" .
+
+odlm:SupportVectorMachine a owl:Class ;
+    rdfs:label "SupportVectorMachine" ;
+    rdfs:subClassOf odlm:SupervisedLearningAlgorithm .
+
+odlm:Agent a owl:Class ;
+    rdfs:label "Agent" .
+
+odlm:AlgorithmicTrading a owl:Class ;
+    rdfs:label "AlgorithmicTrading" ;
+    rdfs:subClassOf odlm:ApplicationScenario .
+
+odlm:AnomalyDetection a owl:Class ;
+    rdfs:label "AnomalyDetection" ;
+    rdfs:subClassOf odlm:ApplicationScenario .
+
+odlm:Apriori a owl:Class ;
+    rdfs:label "Apriori" ;
+    rdfs:subClassOf odlm:AssociationRuleMiningAlgorithm .
+
+odlm:AutonomousDriving a owl:Class ;
+    rdfs:label "AutonomousDriving" ;
+    rdfs:subClassOf odlm:ApplicationScenario .
+
+odlm:Clustering a owl:Class ;
+    rdfs:label "Clustering" ;
+    rdfs:subClassOf odlm:Task .
+
+odlm:CustomerSegmentation a owl:Class ;
+    rdfs:label "CustomerSegmentation" ;
+    rdfs:subClassOf odlm:ApplicationScenario .
+
+odlm:DataCompression a owl:Class ;
+    rdfs:label "DataCompression" ;
+    rdfs:subClassOf odlm:ApplicationScenario .
+
+odlm:FPGrowth a owl:Class ;
+    rdfs:label "FPGrowth" ;
+    rdfs:subClassOf odlm:AssociationRuleMiningAlgorithm .
+
+odlm:GameAI a owl:Class ;
+    rdfs:label "GameAI" ;
+    rdfs:subClassOf odlm:ApplicationScenario .
+
+odlm:GeneAnalysis a owl:Class ;
+    rdfs:label "GeneAnalysis" ;
+    rdfs:subClassOf odlm:ApplicationScenario .
+
+odlm:HierarchicalClustering a owl:Class ;
+    rdfs:label "HierarchicalClustering" ;
+    rdfs:subClassOf odlm:ClusteringAlgorithm .
+
+odlm:ImageRecognition a owl:Class ;
+    rdfs:label "ImageRecognition" ;
+    rdfs:subClassOf odlm:ApplicationScenario .
+
+odlm:KMeans a owl:Class ;
+    rdfs:label "KMeans" ;
+    rdfs:subClassOf odlm:ClusteringAlgorithm .
+
+odlm:MedicalImageAnalysis a owl:Class ;
+    rdfs:label "MedicalImageAnalysis" ;
+    rdfs:subClassOf odlm:ApplicationScenario .
+
+odlm:NaturalLanguageProcessing a owl:Class ;
+    rdfs:label "NaturalLanguageProcessing" ;
+    rdfs:subClassOf odlm:ApplicationScenario .
+
+odlm:PCA a owl:Class ;
+    rdfs:label "PCA" ;
+    rdfs:subClassOf odlm:DimensionalityReductionAlgorithm .
+
+odlm:Policy a owl:Class ;
+    rdfs:label "Policy" .
+
+odlm:RecommendationSystem a owl:Class ;
+    rdfs:label "RecommendationSystem" ;
+    rdfs:subClassOf odlm:ApplicationScenario .
+
+odlm:RobotControl a owl:Class ;
+    rdfs:label "RobotControl" ;
+    rdfs:subClassOf odlm:ApplicationScenario .
+
+odlm:SequentialDecisionMaking a owl:Class ;
+    rdfs:label "SequentialDecisionMaking" ;
+    rdfs:subClassOf odlm:Task .
+
+odlm:SparseCoding a owl:Class ;
+    rdfs:label "SparseCoding" ;
+    rdfs:subClassOf odlm:UnsupervisedLearningAlgorithm .
+
+odlm:SpeechRecognition a owl:Class ;
+    rdfs:label "SpeechRecognition" ;
+    rdfs:subClassOf odlm:ApplicationScenario .
+
+odlm:TSNE a owl:Class ;
+    rdfs:label "TSNE" ;
+    rdfs:subClassOf odlm:DimensionalityReductionAlgorithm .
+
+odlm:TextAnalysis a owl:Class ;
+    rdfs:label "TextAnalysis" ;
+    rdfs:subClassOf odlm:ApplicationScenario .
+
+odlm:TimeSeriesModeling a owl:Class ;
+    rdfs:label "TimeSeriesModeling" ;
+    rdfs:subClassOf odlm:Task .
+
+odlm:WebPageClassification a owl:Class ;
+    rdfs:label "WebPageClassification" ;
+    rdfs:subClassOf odlm:ApplicationScenario .
+
+odlm:CoTraining a owl:Class ;
+    rdfs:label "CoTraining" ;
+    rdfs:subClassOf odlm:SemiSupervisedLearningAlgorithm .
+
+odlm:GaussianMixtureModel a owl:Class ;
+    rdfs:label "GaussianMixtureModel" ;
+    rdfs:subClassOf odlm:GenerativeModel .
+
+odlm:Machine_Learning a owl:Class ;
+    rdfs:label "Machine Learning" .
+
+odlm:Regression a owl:Class ;
+    rdfs:label "Regression" ;
+    rdfs:subClassOf odlm:Task .
+
+odlm:Classification a owl:Class ;
+    rdfs:label "Classification" ;
+    rdfs:subClassOf odlm:Task .
+
+odlm:HiddenMarkovModel a owl:Class ;
+    rdfs:label "HiddenMarkovModel" ;
+    rdfs:subClassOf odlm:GenerativeModel .
+
+odlm:LearningMethod a owl:Class ;
+    rdfs:label "LearningMethod" ;
+    rdfs:subClassOf odlm:Machine_Learning .
+
+odlm:SemiSupervisedLearningAlgorithm a owl:Class ;
+    rdfs:label "SemiSupervisedLearningAlgorithm" ;
+    rdfs:subClassOf odlm:Algorithm .
+
+odlm:SupervisedLearningAlgorithm a owl:Class ;
+    rdfs:label "SupervisedLearningAlgorithm" ;
+    rdfs:subClassOf odlm:Algorithm .
+
+odlm:UnsupervisedLearningAlgorithm a owl:Class ;
+    rdfs:label "UnsupervisedLearningAlgorithm" ;
+    rdfs:subClassOf odlm:Algorithm .
+
+odlm:Algorithm a owl:Class ;
+    rdfs:label "Algorithm" ;
+    rdfs:subClassOf odlm:Machine_Learning .
+
+odlm:PPO a owl:Class ;
+    rdfs:label "PPO" ;
+    rdfs:subClassOf odlm:ReinforcementLearningAlgorithm .
+
+odlm:ReinforcementLearningAlgorithm a owl:Class ;
+    rdfs:label "ReinforcementLearningAlgorithm" ;
+    rdfs:subClassOf odlm:Algorithm .
+
+odlm:TRPO a owl:Class ;
+    rdfs:label "TRPO" ;
+    rdfs:subClassOf odlm:ReinforcementLearningAlgorithm .
+
+odlm:UnsupervisedLearning a owl:Class ;
+    rdfs:label "UnsupervisedLearning" ;
+    rdfs:subClassOf odlm:LearningMethod .
+
+odlm:GenerativeModel a owl:Class ;
+    rdfs:label "GenerativeModel" ;
+    rdfs:subClassOf odlm:SemiSupervisedLearningAlgorithm .
+
+odlm:SemiSupervisedLearning a owl:Class ;
+    rdfs:label "SemiSupervisedLearning" ;
+    rdfs:subClassOf odlm:LearningMethod .
+
+odlm:DQN a owl:Class ;
+    rdfs:label "DQN" ;
+    rdfs:subClassOf odlm:ReinforcementLearningAlgorithm .
+
+odlm:SupervisedLearning a owl:Class ;
+    rdfs:label "SupervisedLearning" ;
+    rdfs:subClassOf odlm:LearningMethod .
+
+odlm:Task a owl:Class ;
+    rdfs:label "Task" ;
+    rdfs:subClassOf odlm:Machine_Learning .
+
+odlm:ActorCritic a owl:Class ;
+    rdfs:label "ActorCritic" ;
+    rdfs:subClassOf odlm:ReinforcementLearningAlgorithm .
+
+odlm:QLearning a owl:Class ;
+    rdfs:label "QLearning" ;
+    rdfs:subClassOf odlm:ReinforcementLearningAlgorithm .
+
+odlm:ReinforcementLearning a owl:Class ;
+    rdfs:label "ReinforcementLearning" ;
+    rdfs:subClassOf odlm:LearningMethod .
+
+odlm:ApplicationScenario a owl:Class ;
+    rdfs:label "ApplicationScenario" ;
+    rdfs:subClassOf odlm:Machine_Learning .
+

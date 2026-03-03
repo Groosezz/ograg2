@@ -1,0 +1,2663 @@
+{
+  "@context": {
+    "ns1": "http://asiainfo.com/",
+    "odlm": "http://asiainfo.com/odlm#",
+    "owl": "http://www.w3.org/2002/07/owl#",
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#"
+  },
+  "@graph": [
+    {
+      "@id": "odlm:usesValueNetwork",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:domain": {
+        "@id": "odlm:ActorCritic"
+      },
+      "rdfs:label": "usesValueNetwork",
+      "rdfs:range": {
+        "@id": "xsd:boolean"
+      }
+    },
+    {
+      "@id": "odlm:maxDepth",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:domain": {
+        "@id": "odlm:DecisionTree"
+      },
+      "rdfs:label": "maxDepth",
+      "rdfs:range": {
+        "@id": "xsd:int"
+      }
+    },
+    {
+      "@id": "odlm:DensityEstimation",
+      "@type": "owl:Class",
+      "rdfs:label": "DensityEstimation",
+      "rdfs:subClassOf": {
+        "@id": "odlm:Task"
+      }
+    },
+    {
+      "@id": "odlm:SupervisedLearning",
+      "@type": "owl:Class",
+      "rdfs:label": "SupervisedLearning",
+      "rdfs:subClassOf": {
+        "@id": "odlm:LearningMethod"
+      }
+    },
+    {
+      "@id": "odlm:RewardSignal",
+      "@type": "owl:Class",
+      "rdfs:label": "RewardSignal"
+    },
+    {
+      "@id": "odlm:Machine_Learning",
+      "@type": "owl:Class",
+      "rdfs:label": "Machine Learning"
+    },
+    {
+      "@id": "odlm:requiresLabels",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:domain": [
+        {
+          "@id": "odlm:ReinforcementLearning"
+        },
+        {
+          "@id": "odlm:SemiSupervisedLearning"
+        },
+        {
+          "@id": "odlm:SupervisedLearning"
+        },
+        {
+          "@id": "odlm:UnsupervisedLearning"
+        }
+      ],
+      "rdfs:label": "requiresLabels",
+      "rdfs:range": {
+        "@id": "xsd:boolean"
+      }
+    },
+    {
+      "@id": "odlm:acousticModelType",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:domain": {
+        "@id": "odlm:SpeechRecognition"
+      },
+      "rdfs:label": "acousticModelType",
+      "rdfs:range": {
+        "@id": "xsd:string"
+      }
+    },
+    {
+      "@id": "odlm:languageModelIntegration",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:domain": {
+        "@id": "odlm:SpeechRecognition"
+      },
+      "rdfs:label": "languageModelIntegration",
+      "rdfs:range": {
+        "@id": "xsd:boolean"
+      }
+    },
+    {
+      "@id": "odlm:compressionRatio",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:domain": {
+        "@id": "odlm:DataCompression"
+      },
+      "rdfs:label": "compressionRatio",
+      "rdfs:range": {
+        "@id": "xsd:double"
+      }
+    },
+    {
+      "@id": "odlm:LearningMethod",
+      "@type": "owl:Class",
+      "rdfs:label": "LearningMethod",
+      "rdfs:subClassOf": {
+        "@id": "odlm:Machine_Learning"
+      }
+    },
+    {
+      "@id": "odlm:confidenceThreshold",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:domain": {
+        "@id": "odlm:CoTraining"
+      },
+      "rdfs:label": "confidenceThreshold",
+      "rdfs:range": {
+        "@id": "xsd:double"
+      }
+    },
+    {
+      "@id": "odlm:SparseCoding",
+      "@type": "owl:Class",
+      "rdfs:label": "SparseCoding",
+      "rdfs:subClassOf": {
+        "@id": "odlm:UnsupervisedLearningAlgorithm"
+      }
+    },
+    {
+      "@id": "odlm:ReinforcementLearning",
+      "@type": "owl:Class",
+      "rdfs:label": "ReinforcementLearning",
+      "rdfs:subClassOf": {
+        "@id": "odlm:LearningMethod"
+      }
+    },
+    {
+      "@id": "odlm:varianceThreshold",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:domain": {
+        "@id": "odlm:PCA"
+      },
+      "rdfs:label": "varianceThreshold",
+      "rdfs:range": {
+        "@id": "xsd:double"
+      }
+    },
+    {
+      "@id": "odlm:numberOfStates",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:domain": {
+        "@id": "odlm:HiddenMarkovModel"
+      },
+      "rdfs:label": "numberOfStates",
+      "rdfs:range": {
+        "@id": "xsd:int"
+      }
+    },
+    {
+      "@id": "odlm:output",
+      "@type": "owl:ObjectProperty",
+      "rdfs:domain": {
+        "@id": "odlm:Actor"
+      },
+      "rdfs:label": "output",
+      "rdfs:range": {
+        "@id": "odlm:ActionProbabilityDistribution"
+      }
+    },
+    {
+      "@id": "odlm:QLearning",
+      "@type": "owl:Class",
+      "rdfs:label": "QLearning",
+      "rdfs:subClassOf": {
+        "@id": "odlm:ReinforcementLearningAlgorithm"
+      }
+    },
+    {
+      "@id": "odlm:involvesTemporalDependency",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:domain": {
+        "@id": "odlm:SequentialDecisionMaking"
+      },
+      "rdfs:label": "involvesTemporalDependency",
+      "rdfs:range": {
+        "@id": "xsd:boolean"
+      }
+    },
+    {
+      "@id": "odlm:ValueFunction",
+      "@type": "owl:Class",
+      "rdfs:label": "ValueFunction"
+    },
+    {
+      "@id": "odlm:SequentialDecisionMaking",
+      "@type": "owl:Class",
+      "rdfs:label": "SequentialDecisionMaking",
+      "rdfs:subClassOf": {
+        "@id": "odlm:Task"
+      }
+    },
+    {
+      "@id": "odlm:temporalGranularity",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:domain": {
+        "@id": "odlm:AlgorithmicTrading"
+      },
+      "rdfs:label": "temporalGranularity",
+      "rdfs:range": {
+        "@id": "xsd:string"
+      }
+    },
+    {
+      "@id": "odlm:usesForwardAlgorithm",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:domain": {
+        "@id": "odlm:HiddenMarkovModel"
+      },
+      "rdfs:label": "usesForwardAlgorithm",
+      "rdfs:range": {
+        "@id": "xsd:boolean"
+      }
+    },
+    {
+      "@id": "odlm:usesPolicyNetwork",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:domain": {
+        "@id": "odlm:ActorCritic"
+      },
+      "rdfs:label": "usesPolicyNetwork",
+      "rdfs:range": {
+        "@id": "xsd:boolean"
+      }
+    },
+    {
+      "@id": "odlm:convergenceStability",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:domain": {
+        "@id": "odlm:TRPO"
+      },
+      "rdfs:label": "convergenceStability",
+      "rdfs:range": {
+        "@id": "xsd:string"
+      }
+    },
+    {
+      "@id": "odlm:activationFunction",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:domain": [
+        {
+          "@id": "odlm:NeuralNetwork"
+        },
+        {
+          "@id": "odlm:SparseCoding"
+        }
+      ],
+      "rdfs:label": "activationFunction",
+      "rdfs:range": {
+        "@id": "xsd:string"
+      }
+    },
+    {
+      "@id": "odlm:safetyCritical",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:domain": {
+        "@id": "odlm:AutonomousDriving"
+      },
+      "rdfs:label": "safetyCritical",
+      "rdfs:range": {
+        "@id": "xsd:boolean"
+      }
+    },
+    {
+      "@id": "odlm:DimensionalityReduction",
+      "@type": "owl:Class",
+      "rdfs:label": "DimensionalityReduction",
+      "rdfs:subClassOf": {
+        "@id": "odlm:Task"
+      }
+    },
+    {
+      "@id": "odlm:actionSpaceType",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:domain": {
+        "@id": "odlm:RobotControl"
+      },
+      "rdfs:label": "actionSpaceType",
+      "rdfs:range": {
+        "@id": "xsd:string"
+      }
+    },
+    {
+      "@id": "odlm:emissionDistribution",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:domain": {
+        "@id": "odlm:HiddenMarkovModel"
+      },
+      "rdfs:label": "emissionDistribution",
+      "rdfs:range": {
+        "@id": "xsd:string"
+      }
+    },
+    {
+      "@id": "odlm:semanticGranularity",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:domain": {
+        "@id": "odlm:TextAnalysis"
+      },
+      "rdfs:label": "semanticGranularity",
+      "rdfs:range": {
+        "@id": "xsd:string"
+      }
+    },
+    {
+      "@id": "odlm:reduce",
+      "@type": "owl:ObjectProperty",
+      "rdfs:domain": {
+        "@id": "odlm:SemiSupervisedLearning"
+      },
+      "rdfs:label": "reduce",
+      "rdfs:range": {
+        "@id": "odlm:LabelingDependency"
+      }
+    },
+    {
+      "@id": "odlm:UnsupervisedLearning",
+      "@type": "owl:Class",
+      "rdfs:label": "UnsupervisedLearning",
+      "rdfs:subClassOf": {
+        "@id": "odlm:LearningMethod"
+      }
+    },
+    {
+      "@id": "odlm:NeuralNetwork",
+      "@type": "owl:Class",
+      "rdfs:label": "NeuralNetwork",
+      "rdfs:subClassOf": {
+        "@id": "odlm:SupervisedLearningAlgorithm"
+      }
+    },
+    {
+      "@id": "odlm:domain",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:domain": [
+        {
+          "@id": "odlm:AlgorithmicTrading"
+        },
+        {
+          "@id": "odlm:ApplicationScenario"
+        },
+        {
+          "@id": "odlm:AutonomousDriving"
+        },
+        {
+          "@id": "odlm:GameAI"
+        },
+        {
+          "@id": "odlm:RobotControl"
+        }
+      ],
+      "rdfs:label": "domain",
+      "rdfs:range": {
+        "@id": "xsd:string"
+      }
+    },
+    {
+      "@id": "odlm:applicationDomain",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:domain": [
+        {
+          "@id": "odlm:Classification"
+        },
+        {
+          "@id": "odlm:Regression"
+        }
+      ],
+      "rdfs:label": "applicationDomain",
+      "rdfs:range": {
+        "@id": "xsd:string"
+      }
+    },
+    {
+      "@id": "odlm:ActorCritic",
+      "@type": "owl:Class",
+      "rdfs:label": "ActorCritic",
+      "rdfs:subClassOf": {
+        "@id": "odlm:ReinforcementLearningAlgorithm"
+      }
+    },
+    {
+      "@id": "odlm:MedicalImageAnalysis",
+      "@type": "owl:Class",
+      "rdfs:label": "MedicalImageAnalysis",
+      "rdfs:subClassOf": {
+        "@id": "odlm:ApplicationScenario"
+      }
+    },
+    {
+      "@id": "odlm:ReinforcementLearningAlgorithm",
+      "@type": "owl:Class",
+      "rdfs:label": "ReinforcementLearningAlgorithm",
+      "rdfs:subClassOf": {
+        "@id": "odlm:Algorithm"
+      }
+    },
+    {
+      "@id": "odlm:identify",
+      "@type": "owl:ObjectProperty",
+      "rdfs:domain": {
+        "@id": "odlm:UnsupervisedLearning"
+      },
+      "rdfs:label": "identify",
+      "rdfs:range": {
+        "@id": "_:nf5ef3af5eacd444e98ce654764852cfcb37"
+      }
+    },
+    {
+      "@id": "_:nf5ef3af5eacd444e98ce654764852cfcb37",
+      "@type": "owl:Class",
+      "owl:unionOf": {
+        "@list": [
+          {
+            "@id": "odlm:Pattern"
+          },
+          {
+            "@id": "odlm:Structure"
+          }
+        ]
+      }
+    },
+    {
+      "@id": "odlm:trainingStability",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:domain": [
+        {
+          "@id": "odlm:ActorCritic"
+        },
+        {
+          "@id": "odlm:PPO"
+        }
+      ],
+      "rdfs:label": "trainingStability",
+      "rdfs:range": {
+        "@id": "xsd:string"
+      }
+    },
+    {
+      "@id": "odlm:PolicyUpdate",
+      "@type": "owl:Class",
+      "rdfs:label": "PolicyUpdate"
+    },
+    {
+      "@id": "odlm:TimeSeriesModeling",
+      "@type": "owl:Class",
+      "rdfs:label": "TimeSeriesModeling",
+      "rdfs:subClassOf": {
+        "@id": "odlm:Task"
+      }
+    },
+    {
+      "@id": "odlm:bandwidth",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:domain": {
+        "@id": "odlm:DensityEstimation"
+      },
+      "rdfs:label": "bandwidth",
+      "rdfs:range": {
+        "@id": "xsd:double"
+      }
+    },
+    {
+      "@id": "odlm:popularity",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:domain": {
+        "@id": "odlm:PPO"
+      },
+      "rdfs:label": "popularity",
+      "rdfs:range": {
+        "@id": "xsd:string"
+      }
+    },
+    {
+      "@id": "odlm:computationalComplexity",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:domain": [
+        {
+          "@id": "odlm:Algorithm"
+        },
+        {
+          "@id": "odlm:QLearning"
+        },
+        {
+          "@id": "odlm:TRPO"
+        }
+      ],
+      "rdfs:label": "computationalComplexity",
+      "rdfs:range": {
+        "@id": "xsd:string"
+      }
+    },
+    {
+      "@id": "odlm:contentStructure",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:domain": {
+        "@id": "odlm:WebPageClassification"
+      },
+      "rdfs:label": "contentStructure",
+      "rdfs:range": {
+        "@id": "xsd:string"
+      }
+    },
+    {
+      "@id": "odlm:Agent",
+      "@type": "owl:Class",
+      "rdfs:label": "Agent"
+    },
+    {
+      "@id": "odlm:PPO",
+      "@type": "owl:Class",
+      "rdfs:label": "PPO",
+      "rdfs:subClassOf": {
+        "@id": "odlm:ReinforcementLearningAlgorithm"
+      }
+    },
+    {
+      "@id": "odlm:HierarchicalClustering",
+      "@type": "owl:Class",
+      "rdfs:label": "HierarchicalClustering",
+      "rdfs:subClassOf": {
+        "@id": "odlm:ClusteringAlgorithm"
+      }
+    },
+    {
+      "@id": "odlm:featureViewCount",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:domain": {
+        "@id": "odlm:WebPageClassification"
+      },
+      "rdfs:label": "featureViewCount",
+      "rdfs:range": {
+        "@id": "xsd:int"
+      }
+    },
+    {
+      "@id": "odlm:OptimalPolicy",
+      "@type": "owl:Class",
+      "rdfs:label": "OptimalPolicy"
+    },
+    {
+      "@id": "odlm:SemiSupervisedLearningAlgorithm",
+      "@type": "owl:Class",
+      "rdfs:label": "SemiSupervisedLearningAlgorithm",
+      "rdfs:subClassOf": {
+        "@id": "odlm:Algorithm"
+      }
+    },
+    {
+      "@id": "odlm:PCA",
+      "@type": "owl:Class",
+      "rdfs:label": "PCA",
+      "rdfs:subClassOf": {
+        "@id": "odlm:DimensionalityReductionAlgorithm"
+      }
+    },
+    {
+      "@id": "odlm:provide",
+      "@type": "owl:ObjectProperty",
+      "rdfs:domain": {
+        "@id": "_:nf5ef3af5eacd444e98ce654764852cfcb61"
+      },
+      "rdfs:label": "provide",
+      "rdfs:range": {
+        "@id": "odlm:OptimizationDirection"
+      }
+    },
+    {
+      "@id": "_:nf5ef3af5eacd444e98ce654764852cfcb61",
+      "@type": "owl:Class",
+      "owl:unionOf": {
+        "@list": [
+          {
+            "@id": "odlm:Critic"
+          },
+          {
+            "@id": "odlm:ActorCritic"
+          }
+        ]
+      }
+    },
+    {
+      "@id": "odlm:DQN",
+      "@type": "owl:Class",
+      "rdfs:label": "DQN",
+      "rdfs:subClassOf": {
+        "@id": "odlm:ReinforcementLearningAlgorithm"
+      }
+    },
+    {
+      "@id": "odlm:expressionNormalization",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:domain": {
+        "@id": "odlm:GeneAnalysis"
+      },
+      "rdfs:label": "expressionNormalization",
+      "rdfs:range": {
+        "@id": "xsd:boolean"
+      }
+    },
+    {
+      "@id": "odlm:KMeans",
+      "@type": "owl:Class",
+      "rdfs:label": "KMeans",
+      "rdfs:subClassOf": {
+        "@id": "odlm:ClusteringAlgorithm"
+      }
+    },
+    {
+      "@id": "odlm:Structure",
+      "@type": "owl:Class",
+      "rdfs:label": "Structure"
+    },
+    {
+      "@id": "odlm:sampleEfficiency",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:domain": {
+        "@id": "odlm:DQN"
+      },
+      "rdfs:label": "sampleEfficiency",
+      "rdfs:range": {
+        "@id": "xsd:string"
+      }
+    },
+    {
+      "@id": "odlm:ImageRecognition",
+      "@type": "owl:Class",
+      "rdfs:label": "ImageRecognition",
+      "rdfs:subClassOf": {
+        "@id": "odlm:ApplicationScenario"
+      }
+    },
+    {
+      "@id": "odlm:distributionAssumption",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:domain": {
+        "@id": "odlm:GenerativeModel"
+      },
+      "rdfs:label": "distributionAssumption",
+      "rdfs:range": {
+        "@id": "xsd:string"
+      }
+    },
+    {
+      "@id": "odlm:ActionProbabilityDistribution",
+      "@type": "owl:Class",
+      "rdfs:label": "ActionProbabilityDistribution"
+    },
+    {
+      "@id": "odlm:CoTraining",
+      "@type": "owl:Class",
+      "rdfs:label": "CoTraining",
+      "rdfs:subClassOf": {
+        "@id": "odlm:SemiSupervisedLearningAlgorithm"
+      }
+    },
+    {
+      "@id": "odlm:regularizationType",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:domain": {
+        "@id": "odlm:LinearRegression"
+      },
+      "rdfs:label": "regularizationType",
+      "rdfs:range": {
+        "@id": "xsd:string"
+      }
+    },
+    {
+      "@id": "odlm:linguisticFeatures",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:domain": {
+        "@id": "odlm:TextAnalysis"
+      },
+      "rdfs:label": "linguisticFeatures",
+      "rdfs:range": {
+        "@id": "xsd:string"
+      }
+    },
+    {
+      "@id": "odlm:name",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:domain": [
+        {
+          "@id": "odlm:Algorithm"
+        },
+        {
+          "@id": "odlm:LearningMethod"
+        },
+        {
+          "@id": "odlm:Task"
+        }
+      ],
+      "rdfs:label": "name",
+      "rdfs:range": {
+        "@id": "xsd:string"
+      }
+    },
+    {
+      "@id": "odlm:objective",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:domain": [
+        {
+          "@id": "odlm:SequentialDecisionMaking"
+        },
+        {
+          "@id": "odlm:Task"
+        }
+      ],
+      "rdfs:label": "objective",
+      "rdfs:range": {
+        "@id": "xsd:string"
+      }
+    },
+    {
+      "@id": "odlm:Task",
+      "@type": "owl:Class",
+      "rdfs:label": "Task",
+      "rdfs:subClassOf": {
+        "@id": "odlm:Machine_Learning"
+      }
+    },
+    {
+      "@id": "odlm:recommendationType",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:domain": {
+        "@id": "odlm:RecommendationSystem"
+      },
+      "rdfs:label": "recommendationType",
+      "rdfs:range": {
+        "@id": "xsd:string"
+      }
+    },
+    {
+      "@id": "odlm:lossy",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:domain": {
+        "@id": "odlm:DataCompression"
+      },
+      "rdfs:label": "lossy",
+      "rdfs:range": {
+        "@id": "xsd:boolean"
+      }
+    },
+    {
+      "@id": "odlm:GeneAnalysis",
+      "@type": "owl:Class",
+      "rdfs:label": "GeneAnalysis",
+      "rdfs:subClassOf": {
+        "@id": "odlm:ApplicationScenario"
+      }
+    },
+    {
+      "@id": "odlm:TSNE",
+      "@type": "owl:Class",
+      "rdfs:label": "TSNE",
+      "rdfs:subClassOf": {
+        "@id": "odlm:DimensionalityReductionAlgorithm"
+      }
+    },
+    {
+      "@id": "odlm:supportsDiscreteActionSpace",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:domain": [
+        {
+          "@id": "odlm:DQN"
+        },
+        {
+          "@id": "odlm:QLearning"
+        }
+      ],
+      "rdfs:label": "supportsDiscreteActionSpace",
+      "rdfs:range": {
+        "@id": "xsd:boolean"
+      }
+    },
+    {
+      "@id": "odlm:clusterCount",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:domain": {
+        "@id": "odlm:Clustering"
+      },
+      "rdfs:label": "clusterCount",
+      "rdfs:range": {
+        "@id": "xsd:int"
+      }
+    },
+    {
+      "@id": "odlm:Regression",
+      "@type": "owl:Class",
+      "rdfs:label": "Regression",
+      "rdfs:subClassOf": {
+        "@id": "odlm:Task"
+      }
+    },
+    {
+      "@id": "odlm:update",
+      "@type": "owl:ObjectProperty",
+      "rdfs:domain": {
+        "@id": "odlm:QLearning"
+      },
+      "rdfs:label": "update",
+      "rdfs:range": {
+        "@id": "odlm:QValue"
+      }
+    },
+    {
+      "@id": "odlm:minimize",
+      "@type": "owl:ObjectProperty",
+      "rdfs:domain": {
+        "@id": "odlm:SupervisedLearning"
+      },
+      "rdfs:label": "minimize",
+      "rdfs:range": {
+        "@id": "odlm:PredictionError"
+      }
+    },
+    {
+      "@id": "odlm:TimeDifferenceError",
+      "@type": "owl:Class",
+      "rdfs:label": "TimeDifferenceError"
+    },
+    {
+      "@id": "odlm:lossFunction",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:domain": {
+        "@id": "odlm:LinearRegression"
+      },
+      "rdfs:label": "lossFunction",
+      "rdfs:range": {
+        "@id": "xsd:string"
+      }
+    },
+    {
+      "@id": "odlm:maximize",
+      "@type": "owl:ObjectProperty",
+      "rdfs:domain": {
+        "@id": "odlm:ReinforcementLearning"
+      },
+      "rdfs:label": "maximize",
+      "rdfs:range": {
+        "@id": "odlm:CumulativeReward"
+      }
+    },
+    {
+      "@id": "odlm:GaussianMixtureModel",
+      "@type": "owl:Class",
+      "rdfs:label": "GaussianMixtureModel",
+      "rdfs:subClassOf": {
+        "@id": "odlm:GenerativeModel"
+      }
+    },
+    {
+      "@id": "odlm:PerformanceAndEfficiency",
+      "@type": "owl:Class",
+      "rdfs:label": "PerformanceAndEfficiency"
+    },
+    {
+      "@id": "ns1:odlm",
+      "@type": "owl:Ontology"
+    },
+    {
+      "@id": "odlm:rely",
+      "@type": "owl:ObjectProperty",
+      "rdfs:domain": {
+        "@id": "odlm:Model"
+      },
+      "rdfs:label": "rely",
+      "rdfs:range": {
+        "@id": "odlm:DataFeature"
+      }
+    },
+    {
+      "@id": "odlm:apply",
+      "@type": "owl:ObjectProperty",
+      "rdfs:domain": {
+        "@id": "_:nf5ef3af5eacd444e98ce654764852cfcb1"
+      },
+      "rdfs:label": "apply",
+      "rdfs:range": {
+        "@id": "_:nf5ef3af5eacd444e98ce654764852cfcb7"
+      }
+    },
+    {
+      "@id": "_:nf5ef3af5eacd444e98ce654764852cfcb1",
+      "@type": "owl:Class",
+      "owl:unionOf": {
+        "@list": [
+          {
+            "@id": "odlm:CoTraining"
+          },
+          {
+            "@id": "odlm:SupervisedLearning"
+          },
+          {
+            "@id": "odlm:SemiSupervisedLearning"
+          },
+          {
+            "@id": "odlm:UnsupervisedLearning"
+          },
+          {
+            "@id": "odlm:ReinforcementLearning"
+          }
+        ]
+      }
+    },
+    {
+      "@id": "_:nf5ef3af5eacd444e98ce654764852cfcb7",
+      "@type": "owl:Class",
+      "owl:unionOf": {
+        "@list": [
+          {
+            "@id": "odlm:SpeechRecognition"
+          },
+          {
+            "@id": "odlm:DataCompression"
+          },
+          {
+            "@id": "odlm:ImageRecognition"
+          },
+          {
+            "@id": "odlm:Classification"
+          },
+          {
+            "@id": "odlm:AutonomousDriving"
+          },
+          {
+            "@id": "odlm:GeneAnalysis"
+          },
+          {
+            "@id": "odlm:WebPageClassification"
+          },
+          {
+            "@id": "odlm:NaturalLanguageProcessing"
+          },
+          {
+            "@id": "odlm:GameAI"
+          },
+          {
+            "@id": "odlm:AnomalyDetection"
+          },
+          {
+            "@id": "odlm:AlgorithmicTrading"
+          },
+          {
+            "@id": "odlm:Regression"
+          },
+          {
+            "@id": "odlm:TextAnalysis"
+          },
+          {
+            "@id": "odlm:RecommendationSystem"
+          },
+          {
+            "@id": "odlm:MedicalImageAnalysis"
+          },
+          {
+            "@id": "odlm:CustomerSegmentation"
+          },
+          {
+            "@id": "odlm:RobotControl"
+          }
+        ]
+      }
+    },
+    {
+      "@id": "odlm:Critic",
+      "@type": "owl:Class",
+      "rdfs:label": "Critic"
+    },
+    {
+      "@id": "odlm:minConfidence",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:domain": {
+        "@id": "odlm:Apriori"
+      },
+      "rdfs:label": "minConfidence",
+      "rdfs:range": {
+        "@id": "xsd:double"
+      }
+    },
+    {
+      "@id": "odlm:detectionLatency",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:domain": {
+        "@id": "odlm:AnomalyDetection"
+      },
+      "rdfs:label": "detectionLatency",
+      "rdfs:range": {
+        "@id": "xsd:double"
+      }
+    },
+    {
+      "@id": "odlm:initializationMethod",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:domain": {
+        "@id": "odlm:KMeans"
+      },
+      "rdfs:label": "initializationMethod",
+      "rdfs:range": {
+        "@id": "xsd:string"
+      }
+    },
+    {
+      "@id": "odlm:learn",
+      "@type": "owl:ObjectProperty",
+      "rdfs:domain": {
+        "@id": "_:nf5ef3af5eacd444e98ce654764852cfcb40"
+      },
+      "rdfs:label": "learn",
+      "rdfs:range": {
+        "@id": "_:nf5ef3af5eacd444e98ce654764852cfcb46"
+      }
+    },
+    {
+      "@id": "_:nf5ef3af5eacd444e98ce654764852cfcb40",
+      "@type": "owl:Class",
+      "owl:unionOf": {
+        "@list": [
+          {
+            "@id": "odlm:SupervisedLearning"
+          },
+          {
+            "@id": "odlm:SemiSupervisedLearning"
+          },
+          {
+            "@id": "odlm:GenerativeModel"
+          },
+          {
+            "@id": "odlm:UnsupervisedLearning"
+          },
+          {
+            "@id": "odlm:ReinforcementLearning"
+          }
+        ]
+      }
+    },
+    {
+      "@id": "_:nf5ef3af5eacd444e98ce654764852cfcb46",
+      "@type": "owl:Class",
+      "owl:unionOf": {
+        "@list": [
+          {
+            "@id": "odlm:Structure"
+          },
+          {
+            "@id": "odlm:Pattern"
+          },
+          {
+            "@id": "odlm:Label"
+          },
+          {
+            "@id": "odlm:Policy"
+          },
+          {
+            "@id": "odlm:JointDistribution"
+          }
+        ]
+      }
+    },
+    {
+      "@id": "odlm:distanceMetric",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:domain": [
+        {
+          "@id": "odlm:HierarchicalClustering"
+        },
+        {
+          "@id": "odlm:KMeans"
+        }
+      ],
+      "rdfs:label": "distanceMetric",
+      "rdfs:range": {
+        "@id": "xsd:string"
+      }
+    },
+    {
+      "@id": "odlm:model",
+      "@type": "owl:ObjectProperty",
+      "rdfs:domain": {
+        "@id": "_:nf5ef3af5eacd444e98ce654764852cfcb52"
+      },
+      "rdfs:label": "model",
+      "rdfs:range": {
+        "@id": "_:nf5ef3af5eacd444e98ce654764852cfcb55"
+      }
+    },
+    {
+      "@id": "_:nf5ef3af5eacd444e98ce654764852cfcb52",
+      "@type": "owl:Class",
+      "owl:unionOf": {
+        "@list": [
+          {
+            "@id": "odlm:GenerativeModel"
+          },
+          {
+            "@id": "odlm:HiddenMarkovModel"
+          }
+        ]
+      }
+    },
+    {
+      "@id": "_:nf5ef3af5eacd444e98ce654764852cfcb55",
+      "@type": "owl:Class",
+      "owl:unionOf": {
+        "@list": [
+          {
+            "@id": "odlm:JointDistribution"
+          },
+          {
+            "@id": "odlm:TimeSeriesModeling"
+          }
+        ]
+      }
+    },
+    {
+      "@id": "odlm:implementationComplexity",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:domain": {
+        "@id": "odlm:PPO"
+      },
+      "rdfs:label": "implementationComplexity",
+      "rdfs:range": {
+        "@id": "xsd:string"
+      }
+    },
+    {
+      "@id": "odlm:kernelType",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:domain": [
+        {
+          "@id": "odlm:DensityEstimation"
+        },
+        {
+          "@id": "odlm:SupportVectorMachine"
+        }
+      ],
+      "rdfs:label": "kernelType",
+      "rdfs:range": {
+        "@id": "xsd:string"
+      }
+    },
+    {
+      "@id": "odlm:RobotControl",
+      "@type": "owl:Class",
+      "rdfs:label": "RobotControl",
+      "rdfs:subClassOf": {
+        "@id": "odlm:ApplicationScenario"
+      }
+    },
+    {
+      "@id": "odlm:Policy",
+      "@type": "owl:Class",
+      "rdfs:label": "Policy"
+    },
+    {
+      "@id": "odlm:contextAwareness",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:domain": {
+        "@id": "odlm:NaturalLanguageProcessing"
+      },
+      "rdfs:label": "contextAwareness",
+      "rdfs:range": {
+        "@id": "xsd:boolean"
+      }
+    },
+    {
+      "@id": "odlm:numberOfComponents",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:domain": [
+        {
+          "@id": "odlm:GaussianMixtureModel"
+        },
+        {
+          "@id": "odlm:PCA"
+        }
+      ],
+      "rdfs:label": "numberOfComponents",
+      "rdfs:range": {
+        "@id": "xsd:int"
+      }
+    },
+    {
+      "@id": "odlm:modality",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:domain": {
+        "@id": "odlm:MedicalImageAnalysis"
+      },
+      "rdfs:label": "modality",
+      "rdfs:range": {
+        "@id": "xsd:string"
+      }
+    },
+    {
+      "@id": "odlm:trainingVariance",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:domain": {
+        "@id": "odlm:ActorCritic"
+      },
+      "rdfs:label": "trainingVariance",
+      "rdfs:range": {
+        "@id": "xsd:string"
+      }
+    },
+    {
+      "@id": "odlm:learningParadigm",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:domain": [
+        {
+          "@id": "odlm:ReinforcementLearning"
+        },
+        {
+          "@id": "odlm:SemiSupervisedLearning"
+        },
+        {
+          "@id": "odlm:SupervisedLearning"
+        },
+        {
+          "@id": "odlm:UnsupervisedLearning"
+        }
+      ],
+      "rdfs:label": "learningParadigm",
+      "rdfs:range": {
+        "@id": "xsd:string"
+      }
+    },
+    {
+      "@id": "odlm:targetDimensionality",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:domain": {
+        "@id": "odlm:DimensionalityReduction"
+      },
+      "rdfs:label": "targetDimensionality",
+      "rdfs:range": {
+        "@id": "xsd:int"
+      }
+    },
+    {
+      "@id": "odlm:parameterSensitivity",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:domain": [
+        {
+          "@id": "odlm:ReinforcementLearningAlgorithm"
+        },
+        {
+          "@id": "odlm:SemiSupervisedLearningAlgorithm"
+        },
+        {
+          "@id": "odlm:SupervisedLearningAlgorithm"
+        },
+        {
+          "@id": "odlm:UnsupervisedLearningAlgorithm"
+        }
+      ],
+      "rdfs:label": "parameterSensitivity",
+      "rdfs:range": {
+        "@id": "xsd:string"
+      }
+    },
+    {
+      "@id": "odlm:OptimizationDirection",
+      "@type": "owl:Class",
+      "rdfs:label": "OptimizationDirection"
+    },
+    {
+      "@id": "odlm:anomalyThreshold",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:domain": {
+        "@id": "odlm:AnomalyDetection"
+      },
+      "rdfs:label": "anomalyThreshold",
+      "rdfs:range": {
+        "@id": "xsd:double"
+      }
+    },
+    {
+      "@id": "odlm:frequentPatternCount",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:domain": {
+        "@id": "odlm:FPGrowth"
+      },
+      "rdfs:label": "frequentPatternCount",
+      "rdfs:range": {
+        "@id": "xsd:int"
+      }
+    },
+    {
+      "@id": "odlm:dendrogramOutput",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:domain": {
+        "@id": "odlm:HierarchicalClustering"
+      },
+      "rdfs:label": "dendrogramOutput",
+      "rdfs:range": {
+        "@id": "xsd:boolean"
+      }
+    },
+    {
+      "@id": "odlm:FPGrowth",
+      "@type": "owl:Class",
+      "rdfs:label": "FPGrowth",
+      "rdfs:subClassOf": {
+        "@id": "odlm:AssociationRuleMiningAlgorithm"
+      }
+    },
+    {
+      "@id": "odlm:NaturalLanguageProcessing",
+      "@type": "owl:Class",
+      "rdfs:label": "NaturalLanguageProcessing",
+      "rdfs:subClassOf": {
+        "@id": "odlm:ApplicationScenario"
+      }
+    },
+    {
+      "@id": "odlm:viewIndependence",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:domain": {
+        "@id": "odlm:CoTraining"
+      },
+      "rdfs:label": "viewIndependence",
+      "rdfs:range": {
+        "@id": "xsd:boolean"
+      }
+    },
+    {
+      "@id": "odlm:dataAvailability",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:domain": {
+        "@id": "odlm:ApplicationScenario"
+      },
+      "rdfs:label": "dataAvailability",
+      "rdfs:range": {
+        "@id": "xsd:string"
+      }
+    },
+    {
+      "@id": "odlm:usesBayesianTheory",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:domain": {
+        "@id": "odlm:GenerativeModel"
+      },
+      "rdfs:label": "usesBayesianTheory",
+      "rdfs:range": {
+        "@id": "xsd:boolean"
+      }
+    },
+    {
+      "@id": "odlm:perform",
+      "@type": "owl:ObjectProperty",
+      "rdfs:domain": {
+        "@id": "odlm:GaussianMixtureModel"
+      },
+      "rdfs:label": "perform",
+      "rdfs:range": {
+        "@id": "_:nf5ef3af5eacd444e98ce654764852cfcb58"
+      }
+    },
+    {
+      "@id": "_:nf5ef3af5eacd444e98ce654764852cfcb58",
+      "@type": "owl:Class",
+      "owl:unionOf": {
+        "@list": [
+          {
+            "@id": "odlm:Clustering"
+          },
+          {
+            "@id": "odlm:Classification"
+          }
+        ]
+      }
+    },
+    {
+      "@id": "odlm:inputDataType",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:domain": {
+        "@id": "odlm:Algorithm"
+      },
+      "rdfs:label": "inputDataType",
+      "rdfs:range": {
+        "@id": "xsd:string"
+      }
+    },
+    {
+      "@id": "odlm:PredictionError",
+      "@type": "owl:Class",
+      "rdfs:label": "PredictionError"
+    },
+    {
+      "@id": "odlm:usesUnlabeledData",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:domain": {
+        "@id": "odlm:SemiSupervisedLearning"
+      },
+      "rdfs:label": "usesUnlabeledData",
+      "rdfs:range": {
+        "@id": "xsd:boolean"
+      }
+    },
+    {
+      "@id": "odlm:covarianceType",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:domain": {
+        "@id": "odlm:GaussianMixtureModel"
+      },
+      "rdfs:label": "covarianceType",
+      "rdfs:range": {
+        "@id": "xsd:string"
+      }
+    },
+    {
+      "@id": "odlm:PolicyQuality",
+      "@type": "owl:Class",
+      "rdfs:label": "PolicyQuality"
+    },
+    {
+      "@id": "odlm:usesTargetNetwork",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:domain": {
+        "@id": "odlm:DQN"
+      },
+      "rdfs:label": "usesTargetNetwork",
+      "rdfs:range": {
+        "@id": "xsd:boolean"
+      }
+    },
+    {
+      "@id": "odlm:SelfTraining",
+      "@type": "owl:Class",
+      "rdfs:label": "SelfTraining",
+      "rdfs:subClassOf": {
+        "@id": "odlm:SemiSupervisedLearningAlgorithm"
+      }
+    },
+    {
+      "@id": "odlm:targetVariable",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:domain": {
+        "@id": "odlm:Regression"
+      },
+      "rdfs:label": "targetVariable",
+      "rdfs:range": {
+        "@id": "xsd:string"
+      }
+    },
+    {
+      "@id": "odlm:itemSetSizeLimit",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:domain": {
+        "@id": "odlm:Apriori"
+      },
+      "rdfs:label": "itemSetSizeLimit",
+      "rdfs:range": {
+        "@id": "xsd:int"
+      }
+    },
+    {
+      "@id": "odlm:LabelingDependency",
+      "@type": "owl:Class",
+      "rdfs:label": "LabelingDependency"
+    },
+    {
+      "@id": "odlm:Algorithm",
+      "@type": "owl:Class",
+      "rdfs:label": "Algorithm",
+      "rdfs:subClassOf": {
+        "@id": "odlm:Machine_Learning"
+      }
+    },
+    {
+      "@id": "odlm:textRepresentation",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:domain": {
+        "@id": "odlm:NaturalLanguageProcessing"
+      },
+      "rdfs:label": "textRepresentation",
+      "rdfs:range": {
+        "@id": "xsd:string"
+      }
+    },
+    {
+      "@id": "odlm:learningRate",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:domain": {
+        "@id": "odlm:TSNE"
+      },
+      "rdfs:label": "learningRate",
+      "rdfs:range": {
+        "@id": "xsd:double"
+      }
+    },
+    {
+      "@id": "odlm:treeCompression",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:domain": {
+        "@id": "odlm:FPGrowth"
+      },
+      "rdfs:label": "treeCompression",
+      "rdfs:range": {
+        "@id": "xsd:boolean"
+      }
+    },
+    {
+      "@id": "odlm:DataCompression",
+      "@type": "owl:Class",
+      "rdfs:label": "DataCompression",
+      "rdfs:subClassOf": {
+        "@id": "odlm:ApplicationScenario"
+      }
+    },
+    {
+      "@id": "odlm:DimensionalityReductionAlgorithm",
+      "@type": "owl:Class",
+      "rdfs:label": "DimensionalityReductionAlgorithm",
+      "rdfs:subClassOf": {
+        "@id": "odlm:UnsupervisedLearningAlgorithm"
+      }
+    },
+    {
+      "@id": "odlm:temporalDependency",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:domain": {
+        "@id": "odlm:TimeSeriesModeling"
+      },
+      "rdfs:label": "temporalDependency",
+      "rdfs:range": {
+        "@id": "xsd:boolean"
+      }
+    },
+    {
+      "@id": "odlm:interpretability",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:domain": {
+        "@id": "odlm:GenerativeModel"
+      },
+      "rdfs:label": "interpretability",
+      "rdfs:range": {
+        "@id": "xsd:string"
+      }
+    },
+    {
+      "@id": "odlm:DataFeature",
+      "@type": "owl:Class",
+      "rdfs:label": "DataFeature"
+    },
+    {
+      "@id": "odlm:adjust",
+      "@type": "owl:ObjectProperty",
+      "rdfs:domain": {
+        "@id": "odlm:Agent"
+      },
+      "rdfs:label": "adjust",
+      "rdfs:range": {
+        "@id": "odlm:Policy"
+      }
+    },
+    {
+      "@id": "odlm:usesKLDivergenceConstraint",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:domain": {
+        "@id": "odlm:TRPO"
+      },
+      "rdfs:label": "usesKLDivergenceConstraint",
+      "rdfs:range": {
+        "@id": "xsd:boolean"
+      }
+    },
+    {
+      "@id": "odlm:interactsWithEnvironment",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:domain": {
+        "@id": "odlm:ReinforcementLearning"
+      },
+      "rdfs:label": "interactsWithEnvironment",
+      "rdfs:range": {
+        "@id": "xsd:boolean"
+      }
+    },
+    {
+      "@id": "odlm:sequenceLength",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:domain": {
+        "@id": "odlm:TimeSeriesModeling"
+      },
+      "rdfs:label": "sequenceLength",
+      "rdfs:range": {
+        "@id": "xsd:int"
+      }
+    },
+    {
+      "@id": "odlm:PolicyChange",
+      "@type": "owl:Class",
+      "rdfs:label": "PolicyChange"
+    },
+    {
+      "@id": "odlm:AlgorithmicTrading",
+      "@type": "owl:Class",
+      "rdfs:label": "AlgorithmicTrading",
+      "rdfs:subClassOf": {
+        "@id": "odlm:ApplicationScenario"
+      }
+    },
+    {
+      "@id": "odlm:classCount",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:domain": {
+        "@id": "odlm:Classification"
+      },
+      "rdfs:label": "classCount",
+      "rdfs:range": {
+        "@id": "xsd:int"
+      }
+    },
+    {
+      "@id": "odlm:supportsDiscreteStateSpace",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:domain": {
+        "@id": "odlm:QLearning"
+      },
+      "rdfs:label": "supportsDiscreteStateSpace",
+      "rdfs:range": {
+        "@id": "xsd:boolean"
+      }
+    },
+    {
+      "@id": "odlm:environmentComplexity",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:domain": {
+        "@id": "odlm:GameAI"
+      },
+      "rdfs:label": "environmentComplexity",
+      "rdfs:range": {
+        "@id": "xsd:string"
+      }
+    },
+    {
+      "@id": "odlm:balance",
+      "@type": "owl:ObjectProperty",
+      "rdfs:domain": {
+        "@id": "odlm:PPO"
+      },
+      "rdfs:label": "balance",
+      "rdfs:range": {
+        "@id": "odlm:PerformanceAndEfficiency"
+      }
+    },
+    {
+      "@id": "odlm:coldStartHandling",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:domain": {
+        "@id": "odlm:RecommendationSystem"
+      },
+      "rdfs:label": "coldStartHandling",
+      "rdfs:range": {
+        "@id": "xsd:boolean"
+      }
+    },
+    {
+      "@id": "odlm:usesTDError",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:domain": {
+        "@id": "odlm:ActorCritic"
+      },
+      "rdfs:label": "usesTDError",
+      "rdfs:range": {
+        "@id": "xsd:boolean"
+      }
+    },
+    {
+      "@id": "odlm:optimize",
+      "@type": "owl:ObjectProperty",
+      "rdfs:domain": {
+        "@id": "odlm:ActorCritic"
+      },
+      "rdfs:label": "optimize",
+      "rdfs:range": {
+        "@id": "odlm:Policy"
+      }
+    },
+    {
+      "@id": "odlm:description",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:domain": {
+        "@id": "odlm:LearningMethod"
+      },
+      "rdfs:label": "description",
+      "rdfs:range": {
+        "@id": "xsd:string"
+      }
+    },
+    {
+      "@id": "odlm:splitCriterion",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:domain": {
+        "@id": "odlm:DecisionTree"
+      },
+      "rdfs:label": "splitCriterion",
+      "rdfs:range": {
+        "@id": "xsd:string"
+      }
+    },
+    {
+      "@id": "odlm:regularizationParameter",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:domain": {
+        "@id": "odlm:SupportVectorMachine"
+      },
+      "rdfs:label": "regularizationParameter",
+      "rdfs:range": {
+        "@id": "xsd:double"
+      }
+    },
+    {
+      "@id": "odlm:RecommendationSystem",
+      "@type": "owl:Class",
+      "rdfs:label": "RecommendationSystem",
+      "rdfs:subClassOf": {
+        "@id": "odlm:ApplicationScenario"
+      }
+    },
+    {
+      "@id": "odlm:train",
+      "@type": "owl:ObjectProperty",
+      "rdfs:domain": {
+        "@id": "odlm:CoTraining"
+      },
+      "rdfs:label": "train",
+      "rdfs:range": {
+        "@id": "odlm:Classifier"
+      }
+    },
+    {
+      "@id": "odlm:handlesHighDimensionalStateSpace",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:domain": {
+        "@id": "odlm:DQN"
+      },
+      "rdfs:label": "handlesHighDimensionalStateSpace",
+      "rdfs:range": {
+        "@id": "xsd:boolean"
+      }
+    },
+    {
+      "@id": "odlm:AnomalyDetection",
+      "@type": "owl:Class",
+      "rdfs:label": "AnomalyDetection",
+      "rdfs:subClassOf": {
+        "@id": "odlm:ApplicationScenario"
+      }
+    },
+    {
+      "@id": "odlm:WebPageClassification",
+      "@type": "owl:Class",
+      "rdfs:label": "WebPageClassification",
+      "rdfs:subClassOf": {
+        "@id": "odlm:ApplicationScenario"
+      }
+    },
+    {
+      "@id": "odlm:SupportVectorMachine",
+      "@type": "owl:Class",
+      "rdfs:label": "SupportVectorMachine",
+      "rdfs:subClassOf": {
+        "@id": "odlm:SupervisedLearningAlgorithm"
+      }
+    },
+    {
+      "@id": "odlm:constrain",
+      "@type": "owl:ObjectProperty",
+      "rdfs:domain": {
+        "@id": "odlm:TRPO"
+      },
+      "rdfs:label": "constrain",
+      "rdfs:range": {
+        "@id": "odlm:PolicyUpdate"
+      }
+    },
+    {
+      "@id": "odlm:SemiSupervisedLearning",
+      "@type": "owl:Class",
+      "rdfs:label": "SemiSupervisedLearning",
+      "rdfs:subClassOf": {
+        "@id": "odlm:LearningMethod"
+      }
+    },
+    {
+      "@id": "odlm:inputModality",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:domain": {
+        "@id": "odlm:DQN"
+      },
+      "rdfs:label": "inputModality",
+      "rdfs:range": {
+        "@id": "xsd:string"
+      }
+    },
+    {
+      "@id": "odlm:AssociationRuleMiningAlgorithm",
+      "@type": "owl:Class",
+      "rdfs:label": "AssociationRuleMiningAlgorithm",
+      "rdfs:subClassOf": {
+        "@id": "odlm:UnsupervisedLearningAlgorithm"
+      }
+    },
+    {
+      "@id": "odlm:numberOfLayers",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:domain": {
+        "@id": "odlm:NeuralNetwork"
+      },
+      "rdfs:label": "numberOfLayers",
+      "rdfs:range": {
+        "@id": "xsd:int"
+      }
+    },
+    {
+      "@id": "odlm:dictionarySize",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:domain": {
+        "@id": "odlm:SparseCoding"
+      },
+      "rdfs:label": "dictionarySize",
+      "rdfs:range": {
+        "@id": "xsd:int"
+      }
+    },
+    {
+      "@id": "odlm:segmentationBasis",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:domain": {
+        "@id": "odlm:CustomerSegmentation"
+      },
+      "rdfs:label": "segmentationBasis",
+      "rdfs:range": {
+        "@id": "xsd:string"
+      }
+    },
+    {
+      "@id": "odlm:widelyUsed",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:domain": {
+        "@id": "odlm:PPO"
+      },
+      "rdfs:label": "widelyUsed",
+      "rdfs:range": {
+        "@id": "xsd:boolean"
+      }
+    },
+    {
+      "@id": "odlm:businessGoal",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:domain": {
+        "@id": "odlm:CustomerSegmentation"
+      },
+      "rdfs:label": "businessGoal",
+      "rdfs:range": {
+        "@id": "xsd:string"
+      }
+    },
+    {
+      "@id": "odlm:estimate",
+      "@type": "owl:ObjectProperty",
+      "rdfs:domain": {
+        "@id": "_:nf5ef3af5eacd444e98ce654764852cfcb25"
+      },
+      "rdfs:label": "estimate",
+      "rdfs:range": {
+        "@id": "_:nf5ef3af5eacd444e98ce654764852cfcb28"
+      }
+    },
+    {
+      "@id": "_:nf5ef3af5eacd444e98ce654764852cfcb25",
+      "@type": "owl:Class",
+      "owl:unionOf": {
+        "@list": [
+          {
+            "@id": "odlm:GaussianMixtureModel"
+          },
+          {
+            "@id": "odlm:QLearning"
+          }
+        ]
+      }
+    },
+    {
+      "@id": "_:nf5ef3af5eacd444e98ce654764852cfcb28",
+      "@type": "owl:Class",
+      "owl:unionOf": {
+        "@list": [
+          {
+            "@id": "odlm:QValue"
+          },
+          {
+            "@id": "odlm:Parameters"
+          }
+        ]
+      }
+    },
+    {
+      "@id": "odlm:updateRule",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:domain": {
+        "@id": "odlm:QLearning"
+      },
+      "rdfs:label": "updateRule",
+      "rdfs:range": {
+        "@id": "xsd:string"
+      }
+    },
+    {
+      "@id": "odlm:featureExtractor",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:domain": {
+        "@id": "odlm:ImageRecognition"
+      },
+      "rdfs:label": "featureExtractor",
+      "rdfs:range": {
+        "@id": "xsd:string"
+      }
+    },
+    {
+      "@id": "odlm:usesBaumWelchAlgorithm",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:domain": {
+        "@id": "odlm:HiddenMarkovModel"
+      },
+      "rdfs:label": "usesBaumWelchAlgorithm",
+      "rdfs:range": {
+        "@id": "xsd:boolean"
+      }
+    },
+    {
+      "@id": "odlm:solve",
+      "@type": "owl:ObjectProperty",
+      "rdfs:domain": {
+        "@id": "odlm:ReinforcementLearning"
+      },
+      "rdfs:label": "solve",
+      "rdfs:range": {
+        "@id": "odlm:SequentialDecisionMaking"
+      }
+    },
+    {
+      "@id": "odlm:use",
+      "@type": "owl:ObjectProperty",
+      "rdfs:domain": {
+        "@id": "odlm:ActorCritic"
+      },
+      "rdfs:label": "use",
+      "rdfs:range": {
+        "@id": "odlm:TimeDifferenceError"
+      }
+    },
+    {
+      "@id": "odlm:linkageCriterion",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:domain": {
+        "@id": "odlm:HierarchicalClustering"
+      },
+      "rdfs:label": "linkageCriterion",
+      "rdfs:range": {
+        "@id": "xsd:string"
+      }
+    },
+    {
+      "@id": "odlm:Classifier",
+      "@type": "owl:Class",
+      "rdfs:label": "Classifier"
+    },
+    {
+      "@id": "odlm:UnsupervisedLearningAlgorithm",
+      "@type": "owl:Class",
+      "rdfs:label": "UnsupervisedLearningAlgorithm",
+      "rdfs:subClassOf": {
+        "@id": "odlm:Algorithm"
+      }
+    },
+    {
+      "@id": "odlm:TRPO",
+      "@type": "owl:Class",
+      "rdfs:label": "TRPO",
+      "rdfs:subClassOf": {
+        "@id": "odlm:ReinforcementLearningAlgorithm"
+      }
+    },
+    {
+      "@id": "odlm:scalability",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:domain": {
+        "@id": "odlm:QLearning"
+      },
+      "rdfs:label": "scalability",
+      "rdfs:range": {
+        "@id": "xsd:string"
+      }
+    },
+    {
+      "@id": "odlm:Label",
+      "@type": "owl:Class",
+      "rdfs:label": "Label"
+    },
+    {
+      "@id": "odlm:GraphNeuralNetwork",
+      "@type": "owl:Class",
+      "rdfs:label": "GraphNeuralNetwork",
+      "rdfs:subClassOf": {
+        "@id": "odlm:SemiSupervisedLearningAlgorithm"
+      }
+    },
+    {
+      "@id": "odlm:build",
+      "@type": "owl:ObjectProperty",
+      "rdfs:domain": {
+        "@id": "odlm:QLearning"
+      },
+      "rdfs:label": "build",
+      "rdfs:range": {
+        "@id": "odlm:OptimalPolicy"
+      }
+    },
+    {
+      "@id": "odlm:combine",
+      "@type": "owl:ObjectProperty",
+      "rdfs:domain": {
+        "@id": "odlm:DQN"
+      },
+      "rdfs:label": "combine",
+      "rdfs:range": {
+        "@id": "odlm:DeepNeuralNetwork"
+      }
+    },
+    {
+      "@id": "odlm:annotationCost",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:domain": {
+        "@id": "odlm:MedicalImageAnalysis"
+      },
+      "rdfs:label": "annotationCost",
+      "rdfs:range": {
+        "@id": "xsd:string"
+      }
+    },
+    {
+      "@id": "odlm:GameAI",
+      "@type": "owl:Class",
+      "rdfs:label": "GameAI",
+      "rdfs:subClassOf": {
+        "@id": "odlm:ApplicationScenario"
+      }
+    },
+    {
+      "@id": "odlm:limit",
+      "@type": "owl:ObjectProperty",
+      "rdfs:domain": {
+        "@id": "odlm:TRPO"
+      },
+      "rdfs:label": "limit",
+      "rdfs:range": {
+        "@id": "odlm:PolicyChange"
+      }
+    },
+    {
+      "@id": "odlm:clip",
+      "@type": "owl:ObjectProperty",
+      "rdfs:domain": {
+        "@id": "odlm:PPO"
+      },
+      "rdfs:label": "clip",
+      "rdfs:range": {
+        "@id": "odlm:PolicyUpdate"
+      }
+    },
+    {
+      "@id": "odlm:receive",
+      "@type": "owl:ObjectProperty",
+      "rdfs:domain": {
+        "@id": "odlm:Agent"
+      },
+      "rdfs:label": "receive",
+      "rdfs:range": {
+        "@id": "odlm:RewardSignal"
+      }
+    },
+    {
+      "@id": "odlm:Clustering",
+      "@type": "owl:Class",
+      "rdfs:label": "Clustering",
+      "rdfs:subClassOf": {
+        "@id": "odlm:Task"
+      }
+    },
+    {
+      "@id": "odlm:SupervisedLearningAlgorithm",
+      "@type": "owl:Class",
+      "rdfs:label": "SupervisedLearningAlgorithm",
+      "rdfs:subClassOf": {
+        "@id": "odlm:Algorithm"
+      }
+    },
+    {
+      "@id": "odlm:usesViterbiAlgorithm",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:domain": {
+        "@id": "odlm:HiddenMarkovModel"
+      },
+      "rdfs:label": "usesViterbiAlgorithm",
+      "rdfs:range": {
+        "@id": "xsd:boolean"
+      }
+    },
+    {
+      "@id": "odlm:reconstructionError",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:domain": {
+        "@id": "odlm:DimensionalityReduction"
+      },
+      "rdfs:label": "reconstructionError",
+      "rdfs:range": {
+        "@id": "xsd:double"
+      }
+    },
+    {
+      "@id": "odlm:Parameters",
+      "@type": "owl:Class",
+      "rdfs:label": "Parameters"
+    },
+    {
+      "@id": "odlm:spatialHierarchy",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:domain": {
+        "@id": "odlm:ImageRecognition"
+      },
+      "rdfs:label": "spatialHierarchy",
+      "rdfs:range": {
+        "@id": "xsd:boolean"
+      }
+    },
+    {
+      "@id": "odlm:evaluate",
+      "@type": "owl:ObjectProperty",
+      "rdfs:domain": {
+        "@id": "_:nf5ef3af5eacd444e98ce654764852cfcb31"
+      },
+      "rdfs:label": "evaluate",
+      "rdfs:range": {
+        "@id": "_:nf5ef3af5eacd444e98ce654764852cfcb34"
+      }
+    },
+    {
+      "@id": "_:nf5ef3af5eacd444e98ce654764852cfcb31",
+      "@type": "owl:Class",
+      "owl:unionOf": {
+        "@list": [
+          {
+            "@id": "odlm:Critic"
+          },
+          {
+            "@id": "odlm:ActorCritic"
+          }
+        ]
+      }
+    },
+    {
+      "@id": "_:nf5ef3af5eacd444e98ce654764852cfcb34",
+      "@type": "owl:Class",
+      "owl:unionOf": {
+        "@list": [
+          {
+            "@id": "odlm:PolicyQuality"
+          },
+          {
+            "@id": "odlm:ValueFunction"
+          }
+        ]
+      }
+    },
+    {
+      "@id": "odlm:deploymentSuitability",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:domain": {
+        "@id": "odlm:TRPO"
+      },
+      "rdfs:label": "deploymentSuitability",
+      "rdfs:range": {
+        "@id": "xsd:string"
+      }
+    },
+    {
+      "@id": "odlm:dependsOnLabelQuantity",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:domain": {
+        "@id": "odlm:SupervisedLearning"
+      },
+      "rdfs:label": "dependsOnLabelQuantity",
+      "rdfs:range": {
+        "@id": "xsd:boolean"
+      }
+    },
+    {
+      "@id": "odlm:ApplicationScenario",
+      "@type": "owl:Class",
+      "rdfs:label": "ApplicationScenario",
+      "rdfs:subClassOf": {
+        "@id": "odlm:Machine_Learning"
+      }
+    },
+    {
+      "@id": "odlm:stabilize",
+      "@type": "owl:ObjectProperty",
+      "rdfs:domain": {
+        "@id": "odlm:DQN"
+      },
+      "rdfs:label": "stabilize",
+      "rdfs:range": {
+        "@id": "odlm:Training"
+      }
+    },
+    {
+      "@id": "odlm:clusterShapeAssumption",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:domain": {
+        "@id": "odlm:Clustering"
+      },
+      "rdfs:label": "clusterShapeAssumption",
+      "rdfs:range": {
+        "@id": "xsd:string"
+      }
+    },
+    {
+      "@id": "odlm:geneCount",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:domain": {
+        "@id": "odlm:GeneAnalysis"
+      },
+      "rdfs:label": "geneCount",
+      "rdfs:range": {
+        "@id": "xsd:int"
+      }
+    },
+    {
+      "@id": "odlm:Classification",
+      "@type": "owl:Class",
+      "rdfs:label": "Classification",
+      "rdfs:subClassOf": {
+        "@id": "odlm:Task"
+      }
+    },
+    {
+      "@id": "odlm:Actor",
+      "@type": "owl:Class",
+      "rdfs:label": "Actor"
+    },
+    {
+      "@id": "odlm:whitening",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:domain": {
+        "@id": "odlm:PCA"
+      },
+      "rdfs:label": "whitening",
+      "rdfs:range": {
+        "@id": "xsd:boolean"
+      }
+    },
+    {
+      "@id": "odlm:supportsContinuousActionSpace",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:domain": [
+        {
+          "@id": "odlm:ActorCritic"
+        },
+        {
+          "@id": "odlm:DQN"
+        },
+        {
+          "@id": "odlm:QLearning"
+        }
+      ],
+      "rdfs:label": "supportsContinuousActionSpace",
+      "rdfs:range": {
+        "@id": "xsd:boolean"
+      }
+    },
+    {
+      "@id": "odlm:Pattern",
+      "@type": "owl:Class",
+      "rdfs:label": "Pattern"
+    },
+    {
+      "@id": "odlm:evaluationMetric",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:domain": [
+        {
+          "@id": "odlm:Classification"
+        },
+        {
+          "@id": "odlm:Regression"
+        }
+      ],
+      "rdfs:label": "evaluationMetric",
+      "rdfs:range": {
+        "@id": "xsd:string"
+      }
+    },
+    {
+      "@id": "odlm:usesExperienceReplay",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:domain": {
+        "@id": "odlm:DQN"
+      },
+      "rdfs:label": "usesExperienceReplay",
+      "rdfs:range": {
+        "@id": "xsd:boolean"
+      }
+    },
+    {
+      "@id": "odlm:DeepNeuralNetwork",
+      "@type": "owl:Class",
+      "rdfs:label": "DeepNeuralNetwork"
+    },
+    {
+      "@id": "odlm:numberOfClusters",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:domain": {
+        "@id": "odlm:KMeans"
+      },
+      "rdfs:label": "numberOfClusters",
+      "rdfs:range": {
+        "@id": "xsd:int"
+      }
+    },
+    {
+      "@id": "odlm:sparsityCoefficient",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:domain": {
+        "@id": "odlm:SparseCoding"
+      },
+      "rdfs:label": "sparsityCoefficient",
+      "rdfs:range": {
+        "@id": "xsd:double"
+      }
+    },
+    {
+      "@id": "odlm:convergenceGuarantee",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:domain": [
+        {
+          "@id": "odlm:ReinforcementLearningAlgorithm"
+        },
+        {
+          "@id": "odlm:SemiSupervisedLearningAlgorithm"
+        },
+        {
+          "@id": "odlm:SupervisedLearningAlgorithm"
+        },
+        {
+          "@id": "odlm:UnsupervisedLearningAlgorithm"
+        }
+      ],
+      "rdfs:label": "convergenceGuarantee",
+      "rdfs:range": {
+        "@id": "xsd:boolean"
+      }
+    },
+    {
+      "@id": "odlm:AutonomousDriving",
+      "@type": "owl:Class",
+      "rdfs:label": "AutonomousDriving",
+      "rdfs:subClassOf": {
+        "@id": "odlm:ApplicationScenario"
+      }
+    },
+    {
+      "@id": "odlm:JointDistribution",
+      "@type": "owl:Class",
+      "rdfs:label": "JointDistribution"
+    },
+    {
+      "@id": "odlm:Environment",
+      "@type": "owl:Class",
+      "rdfs:label": "Environment"
+    },
+    {
+      "@id": "odlm:TextAnalysis",
+      "@type": "owl:Class",
+      "rdfs:label": "TextAnalysis",
+      "rdfs:subClassOf": {
+        "@id": "odlm:ApplicationScenario"
+      }
+    },
+    {
+      "@id": "odlm:CumulativeReward",
+      "@type": "owl:Class",
+      "rdfs:label": "CumulativeReward"
+    },
+    {
+      "@id": "odlm:LinearRegression",
+      "@type": "owl:Class",
+      "rdfs:label": "LinearRegression",
+      "rdfs:subClassOf": {
+        "@id": "odlm:SupervisedLearningAlgorithm"
+      }
+    },
+    {
+      "@id": "odlm:ClusteringAlgorithm",
+      "@type": "owl:Class",
+      "rdfs:label": "ClusteringAlgorithm",
+      "rdfs:subClassOf": {
+        "@id": "odlm:UnsupervisedLearningAlgorithm"
+      }
+    },
+    {
+      "@id": "odlm:Training",
+      "@type": "owl:Class",
+      "rdfs:label": "Training"
+    },
+    {
+      "@id": "odlm:interact",
+      "@type": "owl:ObjectProperty",
+      "rdfs:domain": {
+        "@id": "odlm:Agent"
+      },
+      "rdfs:label": "interact",
+      "rdfs:range": {
+        "@id": "odlm:Environment"
+      }
+    },
+    {
+      "@id": "odlm:usesRewardSignal",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:domain": {
+        "@id": "odlm:ReinforcementLearning"
+      },
+      "rdfs:label": "usesRewardSignal",
+      "rdfs:range": {
+        "@id": "xsd:boolean"
+      }
+    },
+    {
+      "@id": "odlm:minSupport",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:domain": [
+        {
+          "@id": "odlm:Apriori"
+        },
+        {
+          "@id": "odlm:FPGrowth"
+        }
+      ],
+      "rdfs:label": "minSupport",
+      "rdfs:range": {
+        "@id": "xsd:double"
+      }
+    },
+    {
+      "@id": "odlm:Model",
+      "@type": "owl:Class",
+      "rdfs:label": "Model"
+    },
+    {
+      "@id": "odlm:exaggeration",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:domain": {
+        "@id": "odlm:TSNE"
+      },
+      "rdfs:label": "exaggeration",
+      "rdfs:range": {
+        "@id": "xsd:double"
+      }
+    },
+    {
+      "@id": "odlm:GenerativeModel",
+      "@type": "owl:Class",
+      "rdfs:label": "GenerativeModel",
+      "rdfs:subClassOf": {
+        "@id": "odlm:SemiSupervisedLearningAlgorithm"
+      }
+    },
+    {
+      "@id": "odlm:hasHighValue",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:domain": [
+        {
+          "@id": "odlm:ReinforcementLearning"
+        },
+        {
+          "@id": "odlm:SemiSupervisedLearning"
+        },
+        {
+          "@id": "odlm:SupervisedLearning"
+        },
+        {
+          "@id": "odlm:UnsupervisedLearning"
+        }
+      ],
+      "rdfs:label": "hasHighValue",
+      "rdfs:range": {
+        "@id": "xsd:boolean"
+      }
+    },
+    {
+      "@id": "odlm:Apriori",
+      "@type": "owl:Class",
+      "rdfs:label": "Apriori",
+      "rdfs:subClassOf": {
+        "@id": "odlm:AssociationRuleMiningAlgorithm"
+      }
+    },
+    {
+      "@id": "odlm:perplexity",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:domain": {
+        "@id": "odlm:TSNE"
+      },
+      "rdfs:label": "perplexity",
+      "rdfs:range": {
+        "@id": "xsd:int"
+      }
+    },
+    {
+      "@id": "odlm:QValue",
+      "@type": "owl:Class",
+      "rdfs:label": "QValue"
+    },
+    {
+      "@id": "odlm:CustomerSegmentation",
+      "@type": "owl:Class",
+      "rdfs:label": "CustomerSegmentation",
+      "rdfs:subClassOf": {
+        "@id": "odlm:ApplicationScenario"
+      }
+    },
+    {
+      "@id": "odlm:modelFree",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:domain": {
+        "@id": "odlm:QLearning"
+      },
+      "rdfs:label": "modelFree",
+      "rdfs:range": {
+        "@id": "xsd:boolean"
+      }
+    },
+    {
+      "@id": "odlm:dependsOnLabelQuality",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:domain": {
+        "@id": "odlm:SupervisedLearning"
+      },
+      "rdfs:label": "dependsOnLabelQuality",
+      "rdfs:range": {
+        "@id": "xsd:boolean"
+      }
+    },
+    {
+      "@id": "odlm:usesClippingMechanism",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:domain": {
+        "@id": "odlm:PPO"
+      },
+      "rdfs:label": "usesClippingMechanism",
+      "rdfs:range": {
+        "@id": "xsd:boolean"
+      }
+    },
+    {
+      "@id": "odlm:sensitiveToDistributionAssumption",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:domain": {
+        "@id": "odlm:GenerativeModel"
+      },
+      "rdfs:label": "sensitiveToDistributionAssumption",
+      "rdfs:range": {
+        "@id": "xsd:boolean"
+      }
+    },
+    {
+      "@id": "odlm:DecisionTree",
+      "@type": "owl:Class",
+      "rdfs:label": "DecisionTree",
+      "rdfs:subClassOf": {
+        "@id": "odlm:SupervisedLearningAlgorithm"
+      }
+    },
+    {
+      "@id": "odlm:HiddenMarkovModel",
+      "@type": "owl:Class",
+      "rdfs:label": "HiddenMarkovModel",
+      "rdfs:subClassOf": {
+        "@id": "odlm:GenerativeModel"
+      }
+    },
+    {
+      "@id": "odlm:includesAlgorithms",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:domain": [
+        {
+          "@id": "odlm:ReinforcementLearning"
+        },
+        {
+          "@id": "odlm:SemiSupervisedLearning"
+        },
+        {
+          "@id": "odlm:SupervisedLearning"
+        },
+        {
+          "@id": "odlm:UnsupervisedLearning"
+        }
+      ],
+      "rdfs:label": "includesAlgorithms",
+      "rdfs:range": {
+        "@id": "xsd:boolean"
+      }
+    },
+    {
+      "@id": "odlm:suitableForHighDimensionalTasks",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:domain": {
+        "@id": "odlm:TRPO"
+      },
+      "rdfs:label": "suitableForHighDimensionalTasks",
+      "rdfs:range": {
+        "@id": "xsd:boolean"
+      }
+    },
+    {
+      "@id": "odlm:require",
+      "@type": "owl:ObjectProperty",
+      "rdfs:domain": {
+        "@id": "odlm:Model"
+      },
+      "rdfs:label": "require",
+      "rdfs:range": {
+        "@id": "odlm:Label"
+      }
+    },
+    {
+      "@id": "odlm:SpeechRecognition",
+      "@type": "owl:Class",
+      "rdfs:label": "SpeechRecognition",
+      "rdfs:subClassOf": {
+        "@id": "odlm:ApplicationScenario"
+      }
+    }
+  ]
+}
