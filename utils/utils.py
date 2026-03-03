@@ -3,12 +3,20 @@ import os
 from pathlib import Path
 from typing import List, Optional, Sequence, Tuple, Dict, Any
 
-from azureml.rag.utils.connections import (
-    get_connection_by_id_v2,
-    get_metadata_from_connection,
-    get_target_from_connection,
-    connection_to_credential,
-)
+try:
+    from azureml.rag.utils.connections import (
+        get_connection_by_id_v2,
+        get_metadata_from_connection,
+        get_target_from_connection,
+        connection_to_credential,
+    )
+    AZUREML_CONNECTIONS_AVAILABLE = True
+except ImportError:
+    get_connection_by_id_v2 = None
+    get_metadata_from_connection = None
+    get_target_from_connection = None
+    connection_to_credential = None
+    AZUREML_CONNECTIONS_AVAILABLE = False
 
 from langchain_openai.chat_models import AzureChatOpenAI, ChatOpenAI
 from langchain_openai.embeddings import AzureOpenAIEmbeddings, OpenAIEmbeddings
@@ -320,6 +328,11 @@ def get_openai_connection(subscription_id: str, resource_group: str, workspace: 
     """
     Retrieve the OpenAI connection information.
     """
+    if not AZUREML_CONNECTIONS_AVAILABLE:
+        raise ImportError(
+            "azureml-rag is not installed. Install azureml-rag to use AML connection_id resolution."
+        )
+
     connection_string = (
         f"/subscriptions/{subscription_id}/resourceGroups/{resource_group}/"
         f"providers/Microsoft.MachineLearningServices/workspaces/{workspace}/"

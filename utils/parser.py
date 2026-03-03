@@ -55,10 +55,20 @@ def get_config(no_args=False):
         config.query.answers_file = config.query.answers_file.replace("results/", f'{args.results_dir}/')
         config.evaluator.eval_file = config.evaluator.eval_file.replace("results/", f'{args.results_dir}/')
     
+<<<<<<< Updated upstream
     #api_keys = yaml.safe_load(open('api_keys.yaml', 'r'))
     api_keys = {'OPENAI_API_KEY': "bce-v3/ALTAK-j8wi7wZlqtubCoGJr3lHh/bd314d546f5a9827d8ff3a8d5dcccf8a3a7b1768"}
     for k, v in api_keys.items():
         os.environ[k] = v
+=======
+    api_keys = {}
+    if os.path.exists('api_keys.yaml'):
+        with open('api_keys.yaml', 'r') as key_file:
+            api_keys = yaml.safe_load(key_file) or {}
+        for k, v in api_keys.items():
+            os.environ[k] = v
+
+>>>>>>> Stashed changes
     if config.model.deployment_name.startswith('gpt'):
         if 'AZURE_API_KEY' in api_keys and not args.force_personal_openai:
             config.model.api_key = api_keys['AZURE_API_KEY']
@@ -69,13 +79,17 @@ def get_config(no_args=False):
             config.model.api_version = api_keys['AZURE_API_VERSION']
             config.model.api_type = 'azure'
         else:
-            config.model.api_key = api_keys['OPENAI_API_KEY']
-            os.environ['OPENAI_API_KEY'] = api_keys['OPENAI_API_KEY']
-            os.environ['GRAPHRAG_API_KEY'] = api_keys['OPENAI_API_KEY']
-            os.environ['GRAPHRAG_LLM_API_KEY'] = api_keys['OPENAI_API_KEY']
+            openai_key = api_keys.get('OPENAI_API_KEY') or os.getenv('OPENAI_API_KEY')
+            if openai_key:
+                config.model.api_key = openai_key
+                os.environ['OPENAI_API_KEY'] = openai_key
+                os.environ['GRAPHRAG_API_KEY'] = openai_key
+                os.environ['GRAPHRAG_LLM_API_KEY'] = openai_key
     elif 'llama' in config.model.deployment_name.lower():
-        os.environ['TOGETHER_API_KEY'] = api_keys['TOGETHER_API_KEY']
-        config.model.api_type = 'llama'
+        together_key = api_keys.get('TOGETHER_API_KEY') or os.getenv('TOGETHER_API_KEY')
+        if together_key:
+            os.environ['TOGETHER_API_KEY'] = together_key
+            config.model.api_type = 'llama'
     if config.embedding_model.deployment_name.startswith('text-embedding'):
         if 'AZURE_API_KEY' in api_keys and not args.force_personal_openai and not args.force_personal_openai_emb_only:
             config.embedding_model.api_key = api_keys['AZURE_API_KEY']
@@ -83,8 +97,10 @@ def get_config(no_args=False):
             config.embedding_model.api_base = api_keys['AZURE_API_BASE']
             config.embedding_model.api_version = api_keys['AZURE_API_VERSION']
         else:
-            config.embedding_model.api_key = api_keys['OPENAI_API_KEY']
-            config.embedding_model.api_type = 'openai'
+            openai_key = api_keys.get('OPENAI_API_KEY') or os.getenv('OPENAI_API_KEY')
+            if openai_key:
+                config.embedding_model.api_key = openai_key
+                config.embedding_model.api_type = 'openai'
         
     # if config.index_dir is None:
     #     doc_name = '_'.join([os.path.basename(x)[:-3].split('_')[0] for x in glob.glob(os.path.join(config.data.documents_dir, f'**/*.md'), recursive=True)])

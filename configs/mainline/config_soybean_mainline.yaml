@@ -1,0 +1,56 @@
+model:
+  api_base:
+  api_key:
+  deployment_name: gpt-4o
+  api_type: openai
+  api_version: "2024-02-01"
+
+embedding_model:
+  api_base:
+  api_key:
+  deployment_name: text-embedding-3-small
+  api_type: openai
+  api_version: "2024-02-01"
+
+data:
+  documents_dir: data/md/soybean
+  ontology_path: data/ontology/farm_cropcultivation_schema_ontology_jsonld.json
+  kg_storage_path: data/kg/soybean
+  index_dir: index_openai/vector_soybean
+  subdir: false
+  smart_pdf: true
+  full_text: true
+  chunk_size: 4096
+
+query:
+  method: ontohypergraph-rag
+  hyperparams:
+    vector_index: false
+    top_k: 2
+    nodes_top_k: 5
+  batch_size: 10
+  mode: json
+  questions_file: []
+  answers_file: results/soybean/mainline_answers.json
+
+question_generator:
+  framework: ragas
+  test_size: 10
+  distr:
+    simple: 1.0
+    reasoning: 0.0
+    multi_context: 0.0
+
+evaluator:
+  eval_file: results/soybean/mainline_answers.json
+  reference_free: true
+  type: single
+  metrics:
+    - answer_correctness
+    - faithfulness
+    - answer_similarity
+    - answer_relevancy
+    - context_relevancy
+    - context_precision
+    - context_recall
+    - context_entity_recall
