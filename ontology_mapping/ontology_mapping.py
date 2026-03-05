@@ -173,7 +173,8 @@ class OntologyMapping:
         llm: BaseLanguageModel,
         ontology_jsonld_data_create_prompt: Optional[BasePromptTemplate] = ONTOLOGY_JSONLD_DATA_CREATE_PROMPT,
         _fmt_nodes_g2create_prompt: Optional[List[str]] = None,
-        chunk_size: int=8192
+        chunk_size: int=8192,
+        use_json_response_format: bool = True,
     ) -> None:
         self.llm = llm
         self.documents = documents
@@ -181,6 +182,7 @@ class OntologyMapping:
         self.ontology_context_definition = self.load_context_definition(ontology_context_definition_path)
         self._fmt_nodes_g2create_prompt = _fmt_nodes_g2create_prompt or []  # Use provided list or initialize as empty
         self.ontology_jsonld_data_create_prompt = ontology_jsonld_data_create_prompt
+        self.use_json_response_format = use_json_response_format
 
     def get_nodes(self, chunk_size: int) -> List[BaseNode]:
         node_parser = SimpleNodeParser.from_defaults(chunk_size=chunk_size)
@@ -210,8 +212,10 @@ class OntologyMapping:
         )
         self._fmt_nodes_g2create_prompt.append(prompt)  # Store the prompt
         # LOGGER.info(f"Complete prompt: {self._fmt_nodes_g2create_prompt}")
-        jsonld_data = self.llm.invoke(prompt, max_tokens=MAX_TOKENS, 
-                                      response_format={"type": "json_object"}).content  # type: ignore
+        invoke_kwargs = {"max_tokens": MAX_TOKENS}
+        if self.use_json_response_format:
+            invoke_kwargs["response_format"] = {"type": "json_object"}
+        jsonld_data = self.llm.invoke(prompt, **invoke_kwargs).content  # type: ignore
         json_filename = os.path.join(output_dir, f"ontology_node_{idx}.jsonld")
         self.save_ontology_to_json(jsonld_data, json_filename) #, text=data)
         LOGGER.info(f"Saved ontology data from node {idx} to {json_filename}")

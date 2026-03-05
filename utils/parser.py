@@ -55,20 +55,10 @@ def get_config(no_args=False):
         config.query.answers_file = config.query.answers_file.replace("results/", f'{args.results_dir}/')
         config.evaluator.eval_file = config.evaluator.eval_file.replace("results/", f'{args.results_dir}/')
     
-<<<<<<< Updated upstream
     #api_keys = yaml.safe_load(open('api_keys.yaml', 'r'))
     api_keys = {'OPENAI_API_KEY': "bce-v3/ALTAK-j8wi7wZlqtubCoGJr3lHh/bd314d546f5a9827d8ff3a8d5dcccf8a3a7b1768"}
     for k, v in api_keys.items():
         os.environ[k] = v
-=======
-    api_keys = {}
-    if os.path.exists('api_keys.yaml'):
-        with open('api_keys.yaml', 'r') as key_file:
-            api_keys = yaml.safe_load(key_file) or {}
-        for k, v in api_keys.items():
-            os.environ[k] = v
-
->>>>>>> Stashed changes
     if config.model.deployment_name.startswith('gpt'):
         if 'AZURE_API_KEY' in api_keys and not args.force_personal_openai:
             config.model.api_key = api_keys['AZURE_API_KEY']

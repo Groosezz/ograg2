@@ -36,6 +36,9 @@ data:
   subdir: False
   smart_pdf: True
   chunk_size: 8192
+
+ontology_mapping:
+  use_json_response_format: False
   
 query:
   method: ontohypergraph-rag #kg-rag

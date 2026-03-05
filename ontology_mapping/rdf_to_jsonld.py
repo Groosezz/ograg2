@@ -33,7 +33,7 @@ def convert_rdf_to_jsonld(
     output_path: Optional[Union[str, Path]] = None,
     input_format: str = "turtle",
     context: Optional[Dict[str, Any]] = None,
-    minimal_context: bool = False,
+    minimal_context: bool = True,
     auto_compact: bool = True,
     indent: int = 2,
 ) -> Path:

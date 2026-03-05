@@ -32,11 +32,15 @@ if __name__ == '__main__':
     start_time = time.time()
     if to_map_ontology or config.options.force_map_ontology:
         with ThreadPoolExecutor(max_workers=os.cpu_count()) as executor:
+            use_json_response_format = True
+            if 'ontology_mapping' in config and 'use_json_response_format' in config.ontology_mapping:
+                use_json_response_format = config.ontology_mapping.use_json_response_format
             ontology_creator = OntologyMapping(
                 ontology_context_definition_path=config.data.ontology_path,
                 llm=llm,
                 documents=documents,
                 chunk_size=config.data.chunk_size if 'chunk_size' in config.data else 8192,
+                use_json_response_format=use_json_response_format,
             )
             current_output_dir = f'{config.data.kg_storage_path}/ontology'
             os.makedirs(current_output_dir, exist_ok=True)
