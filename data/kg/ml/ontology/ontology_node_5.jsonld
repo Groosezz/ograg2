@@ -1,0 +1,172 @@
+{
+  "@context": {
+    "ns1": "http://asiainfo.com/",
+    "odlm": "http://asiainfo.com/odlm#",
+    "owl": "http://www.w3.org/2002/07/owl#",
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#"
+  },
+  "@graph": [
+    {
+      "@id": "odlm:PPO",
+      "@type": "owl:Class",
+      "rdfs:label": "PPO",
+      "rdfs:subClassOf": {
+        "@id": "odlm:ReinforcementLearningAlgorithm"
+      },
+      "odlm:trainingStability": "high",
+      "odlm:implementationComplexity": "low",
+      "odlm:popularity": "high",
+      "odlm:widelyUsed": true,
+      "odlm:usesClippingMechanism": true,
+      "odlm:balance": {
+        "@id": "odlm:PerformanceAndEfficiency"
+      },
+      "odlm:clip": {
+        "@id": "odlm:PolicyUpdate"
+      },
+      "odlm:computationalComplexity": "moderate"
+    },
+    {
+      "@id": "odlm:GameAI",
+      "@type": "owl:Class",
+      "rdfs:label": "GameAI",
+      "rdfs:subClassOf": {
+        "@id": "odlm:ApplicationScenario"
+      },
+      "odlm:domain": "game",
+      "odlm:environmentComplexity": "high"
+    },
+    {
+      "@id": "odlm:RobotControl",
+      "@type": "owl:Class",
+      "rdfs:label": "RobotControl",
+      "rdfs:subClassOf": {
+        "@id": "odlm:ApplicationScenario"
+      },
+      "odlm:domain": "robotics",
+      "odlm:actionSpaceType": "continuous"
+    },
+    {
+      "@id": "odlm:AutonomousDriving",
+      "@type": "owl:Class",
+      "rdfs:label": "AutonomousDriving",
+      "rdfs:subClassOf": {
+        "@id": "odlm:ApplicationScenario"
+      },
+      "odlm:domain": "autonomous vehicles",
+      "odlm:safetyCritical": true
+    },
+    {
+      "@id": "odlm:DQN",
+      "@type": "owl:Class",
+      "rdfs:label": "DQN",
+      "rdfs:subClassOf": {
+        "@id": "odlm:ReinforcementLearningAlgorithm"
+      },
+      "odlm:combine": {
+        "@id": "odlm:DeepNeuralNetwork"
+      },
+      "odlm:handlesHighDimensionalStateSpace": true,
+      "odlm:usesExperienceReplay": true,
+      "odlm:usesTargetNetwork": true,
+      "odlm:stabilize": {
+        "@id": "odlm:Training"
+      },
+      "odlm:supportsDiscreteActionSpace": true,
+      "odlm:supportsContinuousActionSpace": false,
+      "odlm:sampleEfficiency": "low",
+      "odlm:inputModality": "image"
+    },
+    {
+      "@id": "odlm:QLearning",
+      "@type": "owl:Class",
+      "rdfs:label": "QLearning",
+      "rdfs:subClassOf": {
+        "@id": "odlm:ReinforcementLearningAlgorithm"
+      },
+      "odlm:computationalComplexity": "low",
+      "odlm:supportsDiscreteActionSpace": true,
+      "odlm:supportsContinuousActionSpace": false,
+      "odlm:supportsDiscreteStateSpace": true,
+      "odlm:modelFree": true,
+      "odlm:scalability": "moderate",
+      "odlm:update": {
+        "@id": "odlm:QValue"
+      },
+      "odlm:updateRule": "Q(s,a) = Q(s,a) + α [r + γ max_a' Q(s',a') - Q(s,a)]",
+      "odlm:build": {
+        "@id": "odlm:OptimalPolicy"
+      },
+      "odlm:estimate": {
+        "@id": "odlm:QValue"
+      }
+    },
+    {
+      "@id": "odlm:DeepNeuralNetwork",
+      "@type": "owl:Class",
+      "rdfs:label": "DeepNeuralNetwork"
+    },
+    {
+      "@id": "odlm:Training",
+      "@type": "owl:Class",
+      "rdfs:label": "Training"
+    },
+    {
+      "@id": "odlm:PolicyUpdate",
+      "@type": "owl:Class",
+      "rdfs:label": "PolicyUpdate"
+    },
+    {
+      "@id": "odlm:PerformanceAndEfficiency",
+      "@type": "owl:Class",
+      "rdfs:label": "PerformanceAndEfficiency"
+    },
+    {
+      "@id": "odlm:QValue",
+      "@type": "owl:Class",
+      "rdfs:label": "QValue"
+    },
+    {
+      "@id": "odlm:OptimalPolicy",
+      "@type": "owl:Class",
+      "rdfs:label": "OptimalPolicy"
+    },
+    {
+      "@id": "odlm:ReinforcementLearningAlgorithm",
+      "@type": "owl:Class",
+      "rdfs:label": "ReinforcementLearningAlgorithm",
+      "rdfs:subClassOf": {
+        "@id": "odlm:Algorithm"
+      },
+      "odlm:parameterSensitivity": "high",
+      "odlm:convergenceGuarantee": false
+    },
+    {
+      "@id": "odlm:ApplicationScenario",
+      "@type": "owl:Class",
+      "rdfs:label": "ApplicationScenario",
+      "rdfs:subClassOf": {
+        "@id": "odlm:Machine_Learning"
+      },
+      "odlm:dataAvailability": "high"
+    },
+    {
+      "@id": "odlm:Algorithm",
+      "@type": "owl:Class",
+      "rdfs:label": "Algorithm",
+      "rdfs:subClassOf": {
+        "@id": "odlm:Machine_Learning"
+      },
+      "odlm:name": "Reinforcement Learning Algorithm",
+      "odlm:inputDataType": "state, action, reward",
+      "odlm:computationalComplexity": "varies"
+    },
+    {
+      "@id": "odlm:Machine_Learning",
+      "@type": "owl:Class",
+      "rdfs:label": "Machine Learning"
+    }
+  ]
+}

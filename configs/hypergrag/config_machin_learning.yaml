@@ -1,11 +1,11 @@
 model:
-  # api_base: https://qianfan.baidubce.com/v2
-  # api_key: bce-v3/ALTAK-j8wi7wZlqtubCoGJr3lHh/bd314d546f5a9827d8ff3a8d5dcccf8a3a7b1768
-  api_base: https://dashscope.aliyuncs.com/compatible-mode/v1
-  api_key: sk-c19453fb61004eb88de08e4c2f12c7a7
+  api_base: https://qianfan.baidubce.com/v2
+  api_key: bce-v3/ALTAK-j8wi7wZlqtubCoGJr3lHh/bd314d546f5a9827d8ff3a8d5dcccf8a3a7b1768
+  # api_base: 
+  # api_key: 
   # deployment_name: gpt-35-turbo-16k # -32k
-  #deployment_name: deepseek-v3.2
-  deployment_name: qwen3-max-2026-01-23
+  deployment_name: deepseek-v3.2
+  # deployment_name: gpt-4-32k # -32k
   api_type: openai
   api_version: '2024-02-01' 
   # MODEL_NAME: gpt-4-32k
@@ -29,16 +29,13 @@ embedding_model:
   api_version: '2024-02-01' 
 
 data:
-  documents_dir: data/md/soybean
-  ontology_path: data/ontology/farm_cropcultivation_schema_ontology_jsonld.json
-  kg_storage_path: data/kg/soybean_test
-  index_dir: index_openai/vector_soybean
+  documents_dir: data/md/ml
+  ontology_path: data/ontology/machin_learning_ontology.jsonld
+  kg_storage_path: data/kg/ml
+  index_dir: index_openai/vector_ml
   subdir: False
   smart_pdf: True
-  chunk_size: 400
-
-ontology_mapping:
-  use_json_response_format: True
+  chunk_size: 800
   
 query:
   method: ontohypergraph-rag #kg-rag

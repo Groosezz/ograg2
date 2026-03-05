@@ -1,0 +1,173 @@
+{
+  "@context": {
+    "ns1": "http://asiainfo.com/",
+    "odlm": "http://asiainfo.com/odlm#",
+    "owl": "http://www.w3.org/2002/07/owl#",
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#"
+  },
+  "@graph": [
+    {
+      "@id": "odlm:SupervisedLearning",
+      "@type": "owl:Class",
+      "rdfs:label": "监督学习",
+      "rdfs:subClassOf": {
+        "@id": "odlm:LearningMethod"
+      },
+      "name": "监督学习",
+      "description": "监督学习（Supervised Learning） 是一种基于标注数据训练模型的学习方式，通过学习输入与标签之间的映射关系，实现对新数据的预测。训练目标是最小化预测输出与真实标签之间的误差。",
+      "learningParadigm": "supervised",
+      "requiresLabels": true,
+      "hasHighValue": true,
+      "includesAlgorithms": true,
+      "dependsOnLabelQuantity": true,
+      "dependsOnLabelQuality": true
+    },
+    {
+      "@id": "odlm:minimize",
+      "@type": "owl:ObjectProperty",
+      "rdfs:domain": {
+        "@id": "odlm:SupervisedLearning"
+      },
+      "rdfs:label": "minimize",
+      "rdfs:range": {
+        "@id": "odlm:PredictionError"
+      }
+    },
+    {
+      "@id": "odlm:PredictionError",
+      "@type": "owl:Class",
+      "rdfs:label": "PredictionError"
+    },
+    {
+      "@id": "odlm:LinearRegression",
+      "@type": "owl:Class",
+      "rdfs:label": "线性回归",
+      "rdfs:subClassOf": {
+        "@id": "odlm:SupervisedLearningAlgorithm"
+      }
+    },
+    {
+      "@id": "odlm:SupportVectorMachine",
+      "@type": "owl:Class",
+      "rdfs:label": "支持向量机",
+      "rdfs:subClassOf": {
+        "@id": "odlm:SupervisedLearningAlgorithm"
+      }
+    },
+    {
+      "@id": "odlm:DecisionTree",
+      "@type": "owl:Class",
+      "rdfs:label": "决策树",
+      "rdfs:subClassOf": {
+        "@id": "odlm:SupervisedLearningAlgorithm"
+      }
+    },
+    {
+      "@id": "odlm:NeuralNetwork",
+      "@type": "owl:Class",
+      "rdfs:label": "神经网络",
+      "rdfs:subClassOf": {
+        "@id": "odlm:SupervisedLearningAlgorithm"
+      }
+    },
+    {
+      "@id": "odlm:Classification",
+      "@type": "owl:Class",
+      "rdfs:label": "分类",
+      "rdfs:subClassOf": {
+        "@id": "odlm:Task"
+      }
+    },
+    {
+      "@id": "odlm:Regression",
+      "@type": "owl:Class",
+      "rdfs:label": "回归",
+      "rdfs:subClassOf": {
+        "@id": "odlm:Task"
+      }
+    },
+    {
+      "@id": "odlm:ImageRecognition",
+      "@type": "owl:Class",
+      "rdfs:label": "图像分类",
+      "rdfs:subClassOf": {
+        "@id": "odlm:ApplicationScenario"
+      }
+    },
+    {
+      "@id": "odlm:TextAnalysis",
+      "@type": "owl:Class",
+      "rdfs:label": "文本分类",
+      "rdfs:subClassOf": {
+        "@id": "odlm:ApplicationScenario"
+      }
+    },
+    {
+      "@id": "odlm:AlgorithmicTrading",
+      "@type": "owl:Class",
+      "rdfs:label": "股价预测",
+      "rdfs:subClassOf": {
+        "@id": "odlm:ApplicationScenario"
+      }
+    },
+    {
+      "@id": "odlm:ApplicationScenario",
+      "@type": "owl:Class",
+      "rdfs:label": "应用场景",
+      "rdfs:subClassOf": {
+        "@id": "odlm:Machine_Learning"
+      }
+    },
+    {
+      "@id": "odlm:apply",
+      "@type": "owl:ObjectProperty",
+      "rdfs:domain": {
+        "@id": "odlm:SupervisedLearning"
+      },
+      "rdfs:label": "apply",
+      "rdfs:range": {
+        "@id": "odlm:ImageRecognition"
+      }
+    },
+    {
+      "@id": "odlm:apply",
+      "@type": "owl:ObjectProperty",
+      "rdfs:domain": {
+        "@id": "odlm:SupervisedLearning"
+      },
+      "rdfs:label": "apply",
+      "rdfs:range": {
+        "@id": "odlm:TextAnalysis"
+      }
+    },
+    {
+      "@id": "odlm:apply",
+      "@type": "owl:ObjectProperty",
+      "rdfs:domain": {
+        "@id": "odlm:SupervisedLearning"
+      },
+      "rdfs:label": "apply",
+      "rdfs:range": {
+        "@id": "odlm:AlgorithmicTrading"
+      }
+    },
+    {
+      "@id": "odlm:learn",
+      "@type": "owl:ObjectProperty",
+      "rdfs:domain": {
+        "@id": "odlm:SupervisedLearning"
+      },
+      "rdfs:label": "learn",
+      "rdfs:range": {
+        "@id": "odlm:Label"
+      }
+    },
+    {
+      "@id": "odlm:Label",
+      "@type": "owl:Class",
+      "rdfs:label": "Label"
+    }
+  ]
+}

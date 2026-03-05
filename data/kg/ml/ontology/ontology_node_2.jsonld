@@ -1,0 +1,232 @@
+{
+  "@context": {
+    "ns1": "http://asiainfo.com/",
+    "odlm": "http://asiainfo.com/odlm#",
+    "owl": "http://www.w3.org/2002/07/owl#",
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#"
+  },
+  "@graph": [
+    {
+      "@id": "odlm:UnsupervisedLearning",
+      "@type": "owl:Class",
+      "rdfs:label": "无监督学习",
+      "rdfs:subClassOf": {
+        "@id": "odlm:LearningMethod"
+      },
+      "name": "无监督学习",
+      "description": "是在无标注数据条件下，通过识别数据中的结构与模式进行学习的方法。模型无需标签，依赖数据自身特征来进行聚类、降维、密度估计等任务。",
+      "requiresLabels": false,
+      "learningParadigm": "unsupervised",
+      "hasHighValue": true,
+      "includesAlgorithms": true,
+      "identify": {
+        "@id": "_:b1"
+      }
+    },
+    {
+      "@id": "_:b1",
+      "@type": "owl:Class",
+      "owl:unionOf": {
+        "@list": [
+          {
+            "@id": "odlm:Pattern"
+          },
+          {
+            "@id": "odlm:Structure"
+          }
+        ]
+      }
+    },
+    {
+      "@id": "odlm:KMeans",
+      "@type": "owl:Class",
+      "rdfs:label": "K-means",
+      "rdfs:subClassOf": {
+        "@id": "odlm:ClusteringAlgorithm"
+      }
+    },
+    {
+      "@id": "odlm:HierarchicalClustering",
+      "@type": "owl:Class",
+      "rdfs:label": "层次聚类",
+      "rdfs:subClassOf": {
+        "@id": "odlm:ClusteringAlgorithm"
+      }
+    },
+    {
+      "@id": "odlm:PCA",
+      "@type": "owl:Class",
+      "rdfs:label": "主成分分析",
+      "rdfs:subClassOf": {
+        "@id": "odlm:DimensionalityReductionAlgorithm"
+      }
+    },
+    {
+      "@id": "odlm:TSNE",
+      "@type": "owl:Class",
+      "rdfs:label": "t-SNE",
+      "rdfs:subClassOf": {
+        "@id": "odlm:DimensionalityReductionAlgorithm"
+      }
+    },
+    {
+      "@id": "odlm:SparseCoding",
+      "@type": "owl:Class",
+      "rdfs:label": "稀疏编码",
+      "rdfs:subClassOf": {
+        "@id": "odlm:UnsupervisedLearningAlgorithm"
+      }
+    },
+    {
+      "@id": "odlm:Apriori",
+      "@type": "owl:Class",
+      "rdfs:label": "Apriori",
+      "rdfs:subClassOf": {
+        "@id": "odlm:AssociationRuleMiningAlgorithm"
+      }
+    },
+    {
+      "@id": "odlm:FPGrowth",
+      "@type": "owl:Class",
+      "rdfs:label": "FP-Growth",
+      "rdfs:subClassOf": {
+        "@id": "odlm:AssociationRuleMiningAlgorithm"
+      }
+    },
+    {
+      "@id": "odlm:CustomerSegmentation",
+      "@type": "owl:Class",
+      "rdfs:label": "客户细分",
+      "rdfs:subClassOf": {
+        "@id": "odlm:ApplicationScenario"
+      }
+    },
+    {
+      "@id": "odlm:AnomalyDetection",
+      "@type": "owl:Class",
+      "rdfs:label": "异常检测",
+      "rdfs:subClassOf": {
+        "@id": "odlm:ApplicationScenario"
+      }
+    },
+    {
+      "@id": "odlm:RecommendationSystem",
+      "@type": "owl:Class",
+      "rdfs:label": "推荐系统",
+      "rdfs:subClassOf": {
+        "@id": "odlm:ApplicationScenario"
+      }
+    },
+    {
+      "@id": "odlm:DataCompression",
+      "@type": "owl:Class",
+      "rdfs:label": "数据压缩",
+      "rdfs:subClassOf": {
+        "@id": "odlm:ApplicationScenario"
+      }
+    },
+    {
+      "@id": "odlm:GeneAnalysis",
+      "@type": "owl:Class",
+      "rdfs:label": "基因分析",
+      "rdfs:subClassOf": {
+        "@id": "odlm:ApplicationScenario"
+      }
+    },
+    {
+      "@id": "odlm:Clustering",
+      "@type": "owl:Class",
+      "rdfs:label": "聚类",
+      "rdfs:subClassOf": {
+        "@id": "odlm:Task"
+      }
+    },
+    {
+      "@id": "odlm:DimensionalityReduction",
+      "@type": "owl:Class",
+      "rdfs:label": "降维",
+      "rdfs:subClassOf": {
+        "@id": "odlm:Task"
+      }
+    },
+    {
+      "@id": "odlm:DensityEstimation",
+      "@type": "owl:Class",
+      "rdfs:label": "密度估计",
+      "rdfs:subClassOf": {
+        "@id": "odlm:Task"
+      }
+    },
+    {
+      "@id": "odlm:ClusteringAlgorithm",
+      "@type": "owl:Class",
+      "rdfs:label": "ClusteringAlgorithm",
+      "rdfs:subClassOf": {
+        "@id": "odlm:UnsupervisedLearningAlgorithm"
+      }
+    },
+    {
+      "@id": "odlm:DimensionalityReductionAlgorithm",
+      "@type": "owl:Class",
+      "rdfs:label": "DimensionalityReductionAlgorithm",
+      "rdfs:subClassOf": {
+        "@id": "odlm:UnsupervisedLearningAlgorithm"
+      }
+    },
+    {
+      "@id": "odlm:AssociationRuleMiningAlgorithm",
+      "@type": "owl:Class",
+      "rdfs:label": "AssociationRuleMiningAlgorithm",
+      "rdfs:subClassOf": {
+        "@id": "odlm:UnsupervisedLearningAlgorithm"
+      }
+    },
+    {
+      "@id": "odlm:UnsupervisedLearningAlgorithm",
+      "@type": "owl:Class",
+      "rdfs:label": "UnsupervisedLearningAlgorithm",
+      "rdfs:subClassOf": {
+        "@id": "odlm:Algorithm"
+      }
+    },
+    {
+      "@id": "odlm:LearningMethod",
+      "@type": "owl:Class",
+      "rdfs:label": "LearningMethod",
+      "rdfs:subClassOf": {
+        "@id": "odlm:Machine_Learning"
+      }
+    },
+    {
+      "@id": "odlm:Task",
+      "@type": "owl:Class",
+      "rdfs:label": "Task",
+      "rdfs:subClassOf": {
+        "@id": "odlm:Machine_Learning"
+      }
+    },
+    {
+      "@id": "odlm:ApplicationScenario",
+      "@type": "owl:Class",
+      "rdfs:label": "ApplicationScenario",
+      "rdfs:subClassOf": {
+        "@id": "odlm:Machine_Learning"
+      }
+    },
+    {
+      "@id": "odlm:Machine_Learning",
+      "@type": "owl:Class",
+      "rdfs:label": "Machine Learning"
+    },
+    {
+      "@id": "odlm:Algorithm",
+      "@type": "owl:Class",
+      "rdfs:label": "Algorithm",
+      "rdfs:subClassOf": {
+        "@id": "odlm:Machine_Learning"
+      }
+    }
+  ]
+}

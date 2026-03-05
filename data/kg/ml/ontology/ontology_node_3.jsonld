@@ -1,0 +1,170 @@
+{
+  "@context": {
+    "ns1": "http://asiainfo.com/",
+    "odlm": "http://asiainfo.com/odlm#",
+    "owl": "http://www.w3.org/2002/07/owl#",
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#"
+  },
+  "@graph": [
+    {
+      "@id": "odlm:SemiSupervisedLearning",
+      "@type": "owl:Class",
+      "rdfs:label": "半监督学习",
+      "rdfs:subClassOf": {
+        "@id": "odlm:LearningMethod"
+      },
+      "name": "半监督学习",
+      "description": "半监督学习是一种结合少量有标签数据与大量无标签数据的学习方法，通过利用标注数据引导模型训练，同时从无标签数据中挖掘潜在结构，以提升模型的泛化能力。在标注成本高或数据稀缺的场景下，半监督学习能有效降低对人工标注的依赖。常见方法包括生成式模型、自训练、图神经网络等，广泛应用于医学图像分析、语音识别和自然语言处理等领域。",
+      "learningParadigm": "半监督",
+      "requiresLabels": true,
+      "usesUnlabeledData": true,
+      "hasHighValue": true,
+      "includesAlgorithms": true
+    },
+    {
+      "@id": "odlm:GenerativeModel",
+      "@type": "owl:Class",
+      "rdfs:label": "生成式模型",
+      "rdfs:subClassOf": {
+        "@id": "odlm:SemiSupervisedLearningAlgorithm"
+      },
+      "description": "生成式模型基于贝叶斯理论，假设数据与标签由潜在分布生成，通过学习数据和标签的联合分布来进行分类。高斯混合模型（GMM）通过联合估计带标签和无标签数据的参数，用于聚类和分类任务；隐马尔可夫模型（HMM）则适用于时间序列建模，通过前向算法、维特比算法和Baum-Welch算法完成评估与训练。生成式模型可解释性强，适用于结构明确的任务，但对分布假设敏感。",
+      "usesBayesianTheory": true,
+      "distributionAssumption": "潜在分布",
+      "interpretability": "强",
+      "sensitiveToDistributionAssumption": true
+    },
+    {
+      "@id": "odlm:GaussianMixtureModel",
+      "@type": "owl:Class",
+      "rdfs:label": "高斯混合模型",
+      "rdfs:subClassOf": {
+        "@id": "odlm:GenerativeModel"
+      },
+      "description": "高斯混合模型（GMM）通过联合估计带标签和无标签数据的参数，用于聚类和分类任务。"
+    },
+    {
+      "@id": "odlm:HiddenMarkovModel",
+      "@type": "owl:Class",
+      "rdfs:label": "隐马尔可夫模型",
+      "rdfs:subClassOf": {
+        "@id": "odlm:GenerativeModel"
+      },
+      "description": "隐马尔可夫模型（HMM）则适用于时间序列建模，通过前向算法、维特比算法和Baum-Welch算法完成评估与训练。",
+      "usesForwardAlgorithm": true,
+      "usesViterbiAlgorithm": true,
+      "usesBaumWelchAlgorithm": true
+    },
+    {
+      "@id": "odlm:CoTraining",
+      "@type": "owl:Class",
+      "rdfs:label": "协同训练",
+      "rdfs:subClassOf": {
+        "@id": "odlm:SemiSupervisedLearningAlgorithm"
+      },
+      "description": "协同训练是一种基于多视图的半监督方法，适用于可将数据划分为多个互补特征子集的任务。该方法训练两个独立分类器，分别在不同视图上预测无标签样本，并将高置信度预测加入对方训练集中，逐步提升性能。协同训练在网页分类、图像识别和文本分析中表现出色，尤其适用于视图特征互补、独立性较强的场景。",
+      "viewIndependence": true
+    },
+    {
+      "@id": "odlm:SelfTraining",
+      "@type": "owl:Class",
+      "rdfs:label": "自训练",
+      "rdfs:subClassOf": {
+        "@id": "odlm:SemiSupervisedLearningAlgorithm"
+      },
+      "description": "自训练是半监督学习的常见方法之一。"
+    },
+    {
+      "@id": "odlm:GraphNeuralNetwork",
+      "@type": "owl:Class",
+      "rdfs:label": "图神经网络",
+      "rdfs:subClassOf": {
+        "@id": "odlm:SemiSupervisedLearningAlgorithm"
+      },
+      "description": "图神经网络是半监督学习的常见方法之一。"
+    },
+    {
+      "@id": "odlm:MedicalImageAnalysis",
+      "@type": "owl:Class",
+      "rdfs:label": "医学图像分析",
+      "rdfs:subClassOf": {
+        "@id": "odlm:ApplicationScenario"
+      },
+      "description": "半监督学习广泛应用于医学图像分析领域。"
+    },
+    {
+      "@id": "odlm:SpeechRecognition",
+      "@type": "owl:Class",
+      "rdfs:label": "语音识别",
+      "rdfs:subClassOf": {
+        "@id": "odlm:ApplicationScenario"
+      },
+      "description": "半监督学习广泛应用于语音识别领域。"
+    },
+    {
+      "@id": "odlm:NaturalLanguageProcessing",
+      "@type": "owl:Class",
+      "rdfs:label": "自然语言处理",
+      "rdfs:subClassOf": {
+        "@id": "odlm:ApplicationScenario"
+      },
+      "description": "半监督学习广泛应用于自然语言处理领域。"
+    },
+    {
+      "@id": "odlm:WebPageClassification",
+      "@type": "owl:Class",
+      "rdfs:label": "网页分类",
+      "rdfs:subClassOf": {
+        "@id": "odlm:ApplicationScenario"
+      },
+      "description": "协同训练在网页分类中表现出色。"
+    },
+    {
+      "@id": "odlm:ImageRecognition",
+      "@type": "owl:Class",
+      "rdfs:label": "图像识别",
+      "rdfs:subClassOf": {
+        "@id": "odlm:ApplicationScenario"
+      },
+      "description": "协同训练在图像识别中表现出色。"
+    },
+    {
+      "@id": "odlm:TextAnalysis",
+      "@type": "owl:Class",
+      "rdfs:label": "文本分析",
+      "rdfs:subClassOf": {
+        "@id": "odlm:ApplicationScenario"
+      },
+      "description": "协同训练在文本分析中表现出色。"
+    },
+    {
+      "@id": "odlm:TimeSeriesModeling",
+      "@type": "owl:Class",
+      "rdfs:label": "时间序列建模",
+      "rdfs:subClassOf": {
+        "@id": "odlm:Task"
+      },
+      "description": "隐马尔可夫模型适用于时间序列建模。"
+    },
+    {
+      "@id": "odlm:Clustering",
+      "@type": "owl:Class",
+      "rdfs:label": "聚类",
+      "rdfs:subClassOf": {
+        "@id": "odlm:Task"
+      },
+      "description": "高斯混合模型用于聚类任务。"
+    },
+    {
+      "@id": "odlm:Classification",
+      "@type": "owl:Class",
+      "rdfs:label": "分类",
+      "rdfs:subClassOf": {
+        "@id": "odlm:Task"
+      },
+      "description": "高斯混合模型用于分类任务。"
+    }
+  ]
+}
