@@ -134,10 +134,31 @@ if __name__ == '__main__':
             if query == '':
                 break
             if 'hyperparams' in config.query:
-                response = query_engine.query(query_str=query, **config.query.hyperparams)
+                result = query_engine.query(
+                    query_str=query,
+                    return_context=True,
+                    rules=rules,
+                    **config.query.hyperparams
+                )
             else:
-                response = query_engine.query(query_str=query)
-            print (f'Response: {response}')
+                result = query_engine.query(query_str=query, return_context=True, rules=rules)
+
+            if isinstance(result, tuple) and len(result) == 2:
+                response, retrieved_context = result
+            else:
+                response, retrieved_context = result, None
+
+            try:
+                response_text = response.response
+            except:
+                try:
+                    response_text = response.content
+                except:
+                    response_text = response
+
+            print(f"Response: {response_text}")
+            if retrieved_context is not None:
+                print(f"Retrieved Context: {retrieved_context}")
     else:
         answer_dir = os.path.dirname(config.query.answers_file)
         os.makedirs(answer_dir, exist_ok=True)
